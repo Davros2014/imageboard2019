@@ -1,0 +1,294 @@
+/////////////////////////////////////////////////////////////////////
+// INPUT PHOTO FIELD ////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
+
+// HEADER CONTAINER
+.formContainer {
+    // height: 17vh;
+    background: $header-color;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    margin: 0 auto;
+    z-index: 100;
+}
+.identItems {
+    background: $header-color;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    padding: 3rem;
+    z-index: 5;
+    width: 100%;
+}
+.logoForm {
+    height: 6vw;
+    margin-bottom: 0;
+}
+.headerText {
+    border-top: 1px solid $line-color;
+    font-size: calc(0.85rem + 0.75vw);
+    padding-top: 0.25rem;
+    color: $secondary-color;
+    margin-top: 2rem;
+    letter-spacing: 0.05rem;
+    text-align: center;
+}
+#camera {
+    position: absolute;
+    bottom: 0;
+    transform: translate(-50%, 50%);
+    left: 50%;
+    width: calc(2rem + 1vw);
+    cursor: pointer;
+    z-index: 200;
+    background: $header-color;
+    border-radius: 100%;
+    border: 1px solid $backgroundColour;
+    transition: all 0.25s ease-in-out;
+}
+#camera:hover {
+    transition: all 0.25s ease-in-out;
+    border: 1px solid $backgroundColour;
+    background: $secondary-color;
+}
+//
+// #camera_upload {
+//     position: absolute;
+//     top: 17vh;
+//     transform: translate(-50%, -50%);
+//     left: 50%;
+//     width: calc(1.5rem + 1vw);
+//     cursor: pointer;
+//     z-index: 201;
+//     opacity: 0;
+//     border-radius: 100%;
+//     border: 1px solid $backgroundColour;
+//     display: none;
+// }
+// #camera:hover ~ #camera_upload {
+//     opacity: 1;
+//     background: $secondary-color;
+//     transition: all 3s ease-in-out;
+//     display: block;
+// }
+// #showButton {
+//     position: absolute;
+//     top: 17vh;
+//     transform: translate(-50%, -50%);
+//     left: 50%;
+//     width: calc(1rem + 1vw);
+//     height: calc(1rem + 1vw);
+//     cursor: pointer;
+//     z-index: 300;
+//     background: red;
+//     border: 0;
+//     outline: 0;
+//     border-radius: 100%;
+// }
+
+// drop down field below header
+.formFieldsWrapper {
+    position: absolute;
+    background: rgba(36, 37, 38, 1);
+    background: rgba(0, 0, 0, 0.9);
+    width: 80vw;
+    // add whatever value of top is to top in .active below
+    left: 0;
+    top: 100%;
+    // transform: translateY(-100%);
+    margin: 0 auto;
+    text-align: center;
+    z-index: 99;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    transition: 0.25s all ease-in-out;
+    // margin equivalent to half of the remainder of the containing div minus the width of formFieldsWrapper, so 90vw - 70vw = 20/2 = 10vw
+    margin-left: 10vw;
+    // display: block;
+    z-index: -1;
+}
+// container surrounding drop down fields
+.formFieldsContainer {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    align-items: center;
+}
+.inputsContainer {
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 3rem;
+    display: flex;
+    justify-content: space-around;
+}
+.uploadsContainer {
+    margin: 0 auto;
+    justify-content: space-around;
+    display: flex;
+}
+.uploadButton {
+    height: 3vh;
+    font-size: calc(0.75rem + 0.5vw);
+    color: $secondary-color;
+    background: $header-color;
+    border: none;
+    padding: 0 5rem;
+    transition: 0.25s all ease-in-out;
+    cursor: pointer;
+}
+.uploadButton:hover {
+    color: $light-accent-color;
+    background: $secondary-color;
+}
+
+// upload file field
+
+label[for="file-input"] {
+    height: 3vh;
+    display: block;
+    margin-bottom: 1rem;
+    font-size: calc(0.25rem + 0.5vw);
+    color: #fff;
+    opacity: 0.9;
+    font-weight: bold;
+    cursor: pointer;
+}
+input[type="file"] {
+    cursor: pointer;
+}
+input[type="file"]:focus {
+    outline: none;
+    border: none;
+}
+input[type="file"]::-webkit-file-upload-button {
+    color: $secondary-color;
+    font-size: calc(0.75rem + 0.5vw);
+    background: $header-color;
+    border: 0;
+    padding: 0 1rem;
+    height: 3vh;
+    outline: none;
+    cursor: pointer;
+    transition: 0.25s all ease-in-out;
+    border-radius: 5px;
+    margin-right: 2rem;
+}
+input[type="file"]::-webkit-file-upload-button:hover {
+    color: $header-color;
+    background: $secondary-color;
+}
+// input[name="file-input"]:active {
+//     outline: none;
+// }
+input#file-input:active,
+input#file-input:focus-within,
+input#file-input:focus {
+    outline: none;
+}
+input[type="file"]::-ms-browse {
+    background: $secondary-color;
+    border: 0;
+    padding: 0rem 1rem;
+    cursor: pointer;
+    color: $secondary-color;
+    outline: none;
+    // border-radius: 0.2em;
+}
+#file-input {
+    width: 100%;
+    line-height: 1.4;
+    font-size: calc(0.75rem + 0.5vw);
+    height: 3vh;
+}
+#file-input:focus {
+    background: none;
+    color: $secondary-color;
+}
+
+/* =============== CONTACT SECTION - HOME PAGE =============== */
+
+input,
+textarea,
+select,
+label,
+fieldset {
+    font-family: inherit;
+    font-size: 1.6rem;
+    line-height: 1.4rem;
+    box-sizing: border-box;
+    outline: none;
+}
+input.genInput {
+    /* ---------- email/name boxes ---------- */
+    border: none;
+    height: 3vh;
+    width: 28%;
+    padding: 1vw;
+    font-size: calc(0.75rem + 0.5vw);
+    margin-top: 2vh;
+    color: #934e56;
+    background: $header-color;
+    opacity: 1;
+}
+/* ---------- when clicked ---------- */
+input:focus,
+input:visited {
+    outline: none;
+}
+button:focus {
+    outline: none;
+}
+/* ---------- email/name boxes ---------- */
+
+input::placeholder {
+    font-size: calc(0.75rem + 0.5vw);
+    color: $light-accent-color;
+    color: $complimentary-color;
+    padding-bottom: 1rem;
+}
+textarea {
+    /* ---------- main message box ---------- */
+    background: #e3e6e6;
+    border-radius: 3px;
+    border: none;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    height: 19vh;
+    margin-top: 2rem;
+    margin-right: 20px;
+    outline: none;
+    padding: 10px 20px 10px 20px;
+    width: 100%;
+}
+input:focus,
+textarea:focus {
+    /* ---------- input text colour ---------- */
+    transition: 0.25s all ease-in-out;
+    background: $complimentary-color;
+    border: none;
+    color: $accent-color;
+    color: #934e56;
+    outline: none;
+}
+
+@media all and (max-width: 780px) {
+    .logoForm {
+        height: 12vw;
+    }
+    .inputsContainer {
+        flex-direction: column;
+    }
+    input.genInput {
+        padding: 2vw;
+        width: 100%;
+    }
+}

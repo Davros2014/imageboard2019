@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Nordic Noire</title>
+    <link rel="stylesheet" href="/css/normalize.css" type = "text/css">
+    <link rel="stylesheet" href="/css/style.css" type = "text/css">
+</head>
+<body>
+    <div id="main">
+
+<!-- ////////////////////////////////////////////
+///// INPUT IMAGE FIELD /////////////////////////
+///////////////////////////////////////////// -->
+
+        <form action="">
+            <div class="formContainer" id="demo">
+                <div class="identItems">
+                    <img class="logoForm" src="./images/NN.svg" alt="">
+                    <h5 class="headerText">Celebrating the beauty, the peculiarities and the melancholia of the Nordics </h5>
+                </div>
+                <img @click="show = !show" id="camera" src="./images/CAM.png" alt="">
+                <!-- <img id="camera_upload" src="./images/CAM_UPLOAD.png" alt=""> -->
+
+                <!-- onclick="show()"  -->
+                <transition name="slide-fade">
+                    <div v-if="show" class="formFieldsWrapper">
+                        <div class="formFieldsContainer">
+                            <div class="inputsContainer ">
+                                <input class="genInput" autocomplete="off" autocorrect="off" spellcheck="false" v-model='form.title' name="title" placeholder='Image title' type='text'>
+                                <input class="genInput" autocomplete="off" autocorrect="off" spellcheck="false" v-model='form.description' name="description" placeholder="Brief description of your image" type="text">
+                                <input class="genInput" autocomplete="off" autocorrect="off" spellcheck="false" v-model='form.username' name='username' placeholder='Please, enter your username' type='text'>
+                            </div>
+                            <div class="uploadsContainer">
+                                <input type="file" name="file-input" id="file-input" class="inputfile" autocorrect="off" accept='image/*'  class="inputfile inputfile-1" @change='handleFileChange' data-multiple-caption="{count} files selected" multiple="">
+                                <label for="file-input"></label>
+                                <button class="uploadButton" @click.prevent.default='uploadFile'>upload</button>
+                            </div>
+                        </div>
+                    </div>
+                </transition>
+            </div>
+
+        </form>
+
+<!-- ////////////////////////////////////////////
+///// IMAGEBOARD MARKUP /////////////////////////
+/////////////////////////////////////////////-->
+
+        <div class="wrapper">
+            <ul class="container">
+                <!-- <li v-if='images.length > 0'  v-for='img in images' @click='toggleImageModal(img.id)' class="listItem"> -->
+                <li v-if='images.length > 0'  v-for='img in images' class="listItem">
+                    <a :href="'#' + img.id">
+                        <img class="galleryImage" :src=img.url  alt="" />
+                        <div class="imageText">
+                            <p id="hashsign">#{{img.id}}</p>
+                            <p id="one">{{img.title}}</p>
+                            <p id="two">{{img.description}}</p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>  <!-- end wrapper -->
+
+
+        <!-- right hand side (='name') defined in Vue INSTANCE  -->
+        <!-- left hand side (:name) of prop in Vue COMPONENT -->
+
+        <!-- :name='name'-->
+        <!-- :the name of prop in Vue component='name defined in Vue INSTANCE'-->
+        <!-- v-if='someCondition' -->
+
+<!-- ////////////////////////////////////////////
+///// IMAGE MODAL ///////////////////////////////
+///////////////////////////////////////////// -->
+
+        <!--  FUNCTIONALITY OF THE MODAL > SEE SCRIPT.JS -->
+        <image-modal
+            v-if='imageThatWasClicked'
+            :image-that-was-clicked='imageThatWasClicked'
+            @close-modal="toggleImageModal(null)"
+        ></image-modal>
+        <!-- MORE BUTTON -->
+        <button id="getMore" v-if="showMoreImages" @click="loading">LOAD MORE IMAGES</button>
+    </div> <!-- end main -->
+
+    <script id="image-template" type="text/x-template">
+        <transition name="fade">
+            <!-- outer container -->
+            <div class="modalContainer">
+                <!-- wrapper modal -->
+                <div class="wrapperModal">
+                    <div v-if='imageInfo.length > 0' class="modal-container">
+                        <button @click='closingModal' id="close-modal">X</button>
+                        <!-- MAIN IMAGE -->
+                        <img @click='closingModal' :src=imageInfo[0].url  alt="" >
+                        <!-- IMAGE DESCRIPTIONS CONTAINER-->
+                        <div class="descContainer">
+                            <h1 class="imageTitle"><span class="imageID">#{{ imageInfo[0].id }} </span>{{ imageInfo[0].title }}</h1>
+                            <p class="userDescription">{{imageInfo[0].description}}</p>
+                            <p class="userNameText">{{ imageInfo[0].username }} @ <span class="timestampText">{{ new Date(imageInfo[0].created_at).toLocaleString() }} </span></p>
+                        </div>
+                        <!--"form" refers to "form"- property in script.js-->
+                        <h1 class="viewComments">Post comment</h1>
+                        <form id="commentFormContainer" action="">
+                            <input class="commentInput" v-model='form.comment' autocomplete="off" autocorrect="off" spellcheck="false" name="description" placeholder="Please post your comment here" type="text">
+                            <div class="formUser">
+                                <input v-model='form.username' autocomplete="off" autocorrect="off" spellcheck="false" name='username' placeholder='Enter your username' type='text' required onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your username'" >
+                                <button @click.prevent.default='uploadComment'>Submit comment</button>
+                            </div>
+                        </form>
+                        <!-- use @click='closeModal' on div -->
+                        <h1 v-if='comments.length > 0' class="viewComments">View comments</h1>
+                        <div class="comment-container" v-for="comment in comments">
+                            <h1 class="commentsName">{{comment.comment}}</h1>
+                            <h4 class="commentsUsername"><span>{{comment.username}}</span> on {{ new Date(comment.created_at).toLocaleString()}}</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </transition>
+    </script>
+
+    <script src="/js/vue.js"></script>
+    <!-- <script src="/js/axios.min.js"></script> -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="/js/script.js"></script>
+</body>
+</html>
