@@ -24,17 +24,17 @@
     align-items: center;
     justify-content: center;
     margin: auto;
-    padding: 3rem;
+    padding: calc(1rem + 1vw);
     z-index: 5;
     width: 100%;
 }
 .logoForm {
-    height: 6vw;
+    height: 3vw;
     margin-bottom: 0;
 }
 .headerText {
     border-top: 1px solid $line-color;
-    font-size: calc(0.85rem + 0.75vw);
+    font-size: calc(0.85rem + 0.5vw);
     padding-top: 0.25rem;
     color: $secondary-color;
     margin-top: 2rem;
@@ -99,11 +99,11 @@
     position: absolute;
     background: rgba(36, 37, 38, 1);
     background: rgba(0, 0, 0, 0.9);
-    width: 80vw;
+    width: 70vw;
     // add whatever value of top is to top in .active below
     left: 0;
     top: 100%;
-    // transform: translateY(-100%);
+    // transform: translateX(-0%);
     margin: 0 auto;
     text-align: center;
     z-index: 99;
@@ -111,13 +111,13 @@
     border-bottom-right-radius: 10px;
     transition: 0.25s all ease-in-out;
     // margin equivalent to half of the remainder of the containing div minus the width of formFieldsWrapper, so 90vw - 70vw = 20/2 = 10vw
-    margin-left: 10vw;
+    margin-left: 15vw;
     // display: block;
     z-index: -1;
 }
 // container surrounding drop down fields
 .formFieldsContainer {
-    padding: 2rem;
+    padding: 3rem;
     display: flex;
     flex-direction: column;
     // justify-content: center;
@@ -126,7 +126,7 @@
 .inputsContainer {
     width: 100%;
     margin: 0 auto;
-    margin-bottom: 3rem;
+    margin-bottom: calc(1rem + 1vw);
     display: flex;
     justify-content: space-around;
 }
@@ -136,14 +136,14 @@
     display: flex;
 }
 .uploadButton {
-    height: 3vh;
     font-size: calc(0.75rem + 0.5vw);
     color: $secondary-color;
     background: $header-color;
     border: none;
-    padding: 0 5rem;
+    padding: 0.9rem 2.25rem;
     transition: 0.25s all ease-in-out;
     cursor: pointer;
+    border-radius: 5px;
 }
 .uploadButton:hover {
     color: $light-accent-color;
@@ -153,13 +153,15 @@
 // upload file field
 
 label[for="file-input"] {
-    height: 3vh;
+    // height: 3vh;
     display: block;
     margin-bottom: 1rem;
     font-size: calc(0.25rem + 0.5vw);
     color: #fff;
     opacity: 0.9;
     font-weight: bold;
+    padding: 0.9rem 2.25rem;
+
     cursor: pointer;
 }
 input[type="file"] {
@@ -175,7 +177,8 @@ input[type="file"]::-webkit-file-upload-button {
     background: $header-color;
     border: 0;
     padding: 0 1rem;
-    height: 3vh;
+    padding: 0.9rem 2.25rem;
+    // height: 3vh;
     outline: none;
     cursor: pointer;
     transition: 0.25s all ease-in-out;
@@ -207,7 +210,7 @@ input[type="file"]::-ms-browse {
     width: 100%;
     line-height: 1.4;
     font-size: calc(0.75rem + 0.5vw);
-    height: 3vh;
+    // height: 3vh;
 }
 #file-input:focus {
     background: none;
@@ -230,11 +233,12 @@ fieldset {
 input.genInput {
     /* ---------- email/name boxes ---------- */
     border: none;
-    height: 3vh;
+    height: 2.5vh;
     width: 28%;
-    padding: 1vw;
+    padding: calc(1rem + 1vw);
+    margin-bottom: 0.75vw;
     font-size: calc(0.75rem + 0.5vw);
-    margin-top: 2vh;
+    // margin-top: 2vh;
     color: #934e56;
     background: $header-color;
     opacity: 1;
@@ -282,13 +286,21 @@ textarea:focus {
 
 @media all and (max-width: 780px) {
     .logoForm {
-        height: 12vw;
+        height: 5vw;
     }
     .inputsContainer {
         flex-direction: column;
     }
     input.genInput {
-        padding: 2vw;
+        padding: 4vw;
         width: 100%;
+        margin-bottom: 2vh;
+    }
+    .formFieldsWrapper {
+        width: 90vw;
+    }
+    .formFieldsWrapper {
+        width: 90vw;
+        margin-left: 5vw;
     }
 }

@@ -3,15 +3,14 @@
 <head>
     <meta charset="utf-8">
     <title>Nordic Noire</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link rel="stylesheet" href="/css/normalize.css" type = "text/css">
     <link rel="stylesheet" href="/css/style.css" type = "text/css">
 </head>
 <body>
     <div id="main">
 
-<!-- ////////////////////////////////////////////
-///// INPUT IMAGE FIELD /////////////////////////
-///////////////////////////////////////////// -->
 
         <form action="">
             <div class="formContainer" id="demo">
@@ -20,9 +19,8 @@
                     <h5 class="headerText">Celebrating the beauty, the peculiarities and the melancholia of the Nordics </h5>
                 </div>
                 <img @click="show = !show" id="camera" src="./images/CAM.png" alt="">
-                <!-- <img id="camera_upload" src="./images/CAM_UPLOAD.png" alt=""> -->
 
-                <!-- onclick="show()"  -->
+                <!-- IMAGE UPLOAD FIELDS -->
                 <transition name="slide-fade">
                     <div v-if="show" class="formFieldsWrapper">
                         <div class="formFieldsContainer">
@@ -34,7 +32,7 @@
                             <div class="uploadsContainer">
                                 <input type="file" name="file-input" id="file-input" class="inputfile" autocorrect="off" accept='image/*'  class="inputfile inputfile-1" @change='handleFileChange' data-multiple-caption="{count} files selected" multiple="">
                                 <label for="file-input"></label>
-                                <button class="uploadButton" @click.prevent.default='uploadFile'>upload</button>
+                                <button class="uploadButton" @click="show = !show" @click.prevent.default='uploadFile'>upload</button>
                             </div>
                         </div>
                     </div>

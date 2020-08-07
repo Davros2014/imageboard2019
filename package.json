@@ -13,16 +13,17 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
-        "aws-sdk": "^2.685.0",
+        "aws-sdk": "^2.728.0",
         "body-parser": "^1.15.2",
         "dotenv": "^8.2.0",
         "express": "^4.17.1",
         "knox-s3": "^0.9.5",
         "multer": "^1.4.2",
-        "npm": "^6.14.5",
+        "node-sass": "^4.14.1",
+        "npm": "^6.14.7",
         "s3": "^4.4.0",
         "s3-fs": "^0.3.0",
-        "spiced-pg": "^1.0.0",
+        "spiced-pg": "^1.0.3",
         "uid-safe": "^2.1.5"
     }
 }

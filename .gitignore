@@ -1,6 +1,7 @@
+secrets.json
+
 node_modules
 .DS_Store
-secrets.json
 examples
 .sass-cache
 normalize.css
@@ -8,5 +9,3 @@ fonts
 style.css.map
 MD_files
 FINLAND_IMAGES
-S3middleware.js
-awsS3middleware.js

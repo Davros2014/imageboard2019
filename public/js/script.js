@@ -85,7 +85,8 @@
                 username: "",
                 file: null
             },
-            show: false
+            show: false,
+            imageUploading: false
         }, // closes DATA - comma needed
         mounted: function() {
             var self = this;
@@ -130,11 +131,12 @@
                 location.hash = "";
                 console.log("// This in the vue instance", this);
             }, // always use a comma
+
             // every single function that runs in response to an event will be written here
             handleFileChange: function(e) {
                 // console.log("handleFileChange e", e.target.files[0]); // from object data in inspector
                 this.form.file = e.target.files[0];
-                console.log(">>> Target image", this.form.file);
+                console.log("Info of image to upload", this.form.file);
             },
             loading: function() {
                 var self = this;
@@ -153,27 +155,23 @@
                         }
                     })
                     .catch(function(err) {
-                        console.log("error (upload)", err.message);
+                        console.log("Error uploading image", err.message);
                     });
             },
             uploadFile: function() {
-                console.log("///// UploadFile running! ////////////////// ");
+                console.log("// UploadFile");
                 var formData = new FormData();
-                console.log("this.form.file", this.form.file);
-                console.log("this.form", this.form);
-
-                // const { file, title, username, description } = this.form;
-                formData.append("file", this.form.file);
-                formData.append("title", this.form.title);
-                formData.append("username", this.form.username);
-                formData.append("description", this.form.description);
-                // console.log("formData: ", formData); when we log formData it returns an empty object {} this is ok
-                var self = this;
+                const { file, title, username, description } = this.form;
+                formData.append("file", file);
+                formData.append("title", title);
+                formData.append("username", username);
+                formData.append("description", description);
+                // console.log("formData: ", formData); formData will return an empty object {} >> this is ok
+                var self = this; // to distinguish from the global "this"
                 axios
                     .post("/upload", formData)
-
                     .then(function(response) {
-                        console.log(">>> resp in upload", response.data);
+                        // console.log(">>> resp in upload", response.data);
                         self.images.unshift({
                             url: response.data.url,
                             title: self.form.title,
@@ -185,10 +183,10 @@
                         self.form.title = "";
                         self.form.description = "";
                         self.form.username = "";
-                        console.log(">>> GOING POSTING POSTY POST");
+                        // console.log("Successful image upload!!");
                     })
                     .catch(function(err) {
-                        console.log("error (upload)", err.message);
+                        console.log("Error uploading image", err.message);
                     });
                 // end axios
             }
