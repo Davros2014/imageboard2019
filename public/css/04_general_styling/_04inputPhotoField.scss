@@ -239,7 +239,7 @@ input.genInput {
     margin-bottom: 0.75vw;
     font-size: calc(0.75rem + 0.5vw);
     // margin-top: 2vh;
-    color: #934e56;
+    color: $secondary-color;
     background: $header-color;
     opacity: 1;
 }
@@ -280,7 +280,7 @@ textarea:focus {
     background: $complimentary-color;
     border: none;
     color: $accent-color;
-    color: #934e56;
+    color: $secondary-color;
     outline: none;
 }
 

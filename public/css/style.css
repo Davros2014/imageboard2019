@@ -483,7 +483,7 @@ input.genInput {
   padding: calc(1rem + 1vw);
   margin-bottom: 0.75vw;
   font-size: calc(0.75rem + 0.5vw);
-  color: #934e56;
+  color: #934d7c;
   background: #242526;
   opacity: 1;
 }
@@ -528,7 +528,7 @@ textarea:focus {
   background: #4c4c4c;
   border: none;
   color: #333333;
-  color: #934e56;
+  color: #934d7c;
   outline: none;
 }
 
