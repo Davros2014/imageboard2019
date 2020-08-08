@@ -47,7 +47,7 @@ app.post("/upload", uploader.single("file"), s3.upload, function(req, res) {
             ">>> POST > UPLOAD > req.file.filename:",
             req.file.filename
         );
-        const bucketUrl = "https://s3.amazonaws.com/style-guide-repo2020/";
+        const bucketUrl = "https://s3.amazonaws.com/styleguide-repo2020/";
         // let amazonUrl =
         //     "https://s3.amazonaws.com/spicedling/" + req.file.filename;
         // let amazonUrl =
