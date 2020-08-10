@@ -54,6 +54,8 @@
                     .then(function(commentResponse) {
                         // console.log("// commentResponse", commentResponse.data);
                         self.comments.unshift(commentResponse.data);
+                        self.form.comment = "";
+                        self.form.username = "";
                         // console.log("// self.comments", self.comments);
                     })
                     .catch(function(err) {
@@ -161,11 +163,12 @@
             uploadFile: function() {
                 console.log("// UploadFile");
                 var formData = new FormData();
-                const { file, title, username, description } = this.form;
-                formData.append("file", file);
-                formData.append("title", title);
-                formData.append("username", username);
-                formData.append("description", description);
+                // NO ES6
+                // const { file, title, username, description } = this.form;
+                formData.append("file", this.form.file);
+                formData.append("title", this.form.title);
+                formData.append("username", this.form.username);
+                formData.append("description", this.form.description);
                 // console.log("formData: ", formData); formData will return an empty object {} >> this is ok
                 var self = this; // to distinguish from the global "this"
                 axios

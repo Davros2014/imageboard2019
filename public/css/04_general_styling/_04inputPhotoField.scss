@@ -136,6 +136,7 @@
     display: flex;
 }
 .uploadButton {
+    text-transform: uppercase;
     font-size: calc(0.75rem + 0.5vw);
     color: $secondary-color;
     background: $header-color;

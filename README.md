@@ -13,4 +13,8 @@ An instagram-esque clone that allows users to upload images, add a title and a t
 -   Express.js
 -   SCSS
 
+## Usage
+
+To use this app you will need an AWS account. Clone the app and create a secrets.json file in the root directory - paste your AWS KEY and SECRET there. Replace any instances of imageboard2020 in the code with the name of your S3 bucket.
+
 ## Screenshots

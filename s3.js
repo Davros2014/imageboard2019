@@ -10,7 +10,7 @@ if (process.env.NODE_ENV == "production") {
 const client = knox.createClient({
     key: secrets.AWS_KEY,
     secret: secrets.AWS_SECRET,
-    bucket: "styleguide-repo2020" // my creds
+    bucket: "imageboard2020" // my creds
 });
 
 module.exports.upload = function(req, res, next) {
