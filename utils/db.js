@@ -1,5 +1,4 @@
 var spicedPg = require("spiced-pg");
-// var db = spicedPg("postgres:postgres:postgres@localhost:5432/salt-petition");
 
 const dbUrl =
     process.env.DATABASE_URL ||

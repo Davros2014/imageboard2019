@@ -1,6 +1,4 @@
 (function() {
-    // this component is the modal that will pop up
-    // vue turns the name of the component into a html tag
     Vue.component("image-modal", {
         template: "#image-template", // relates to script with id of
         props: ["imageThatWasClicked"],
@@ -13,20 +11,15 @@
                     comment: "",
                     id: this.imageThatWasClicked
                 }
-            }; // return end
-        }, // function end
+            };
+        },
         mounted: function() {
-            console.log(
-                "// this.thingThatWasClicked, ",
-                this.imageThatWasClicked
-            );
             var self = this; // relates to this in Window
             axios
                 .get("/get-image-info/" + this.imageThatWasClicked)
                 .then(function(resp) {
                     self.imageInfo = resp.data[0];
                     self.comments = resp.data[1];
-                    // console.log("self.imageInfo", self.imageInfo);
                 })
                 .catch(function(err) {
                     console.log("error", err);
@@ -52,11 +45,9 @@
                 axios
                     .post("/uploadComment", this.form)
                     .then(function(commentResponse) {
-                        // console.log("// commentResponse", commentResponse.data);
                         self.comments.unshift(commentResponse.data);
                         self.form.comment = "";
                         self.form.username = "";
-                        // console.log("// self.comments", self.comments);
                     })
                     .catch(function(err) {
                         console.log("error", err);
@@ -64,16 +55,14 @@
             },
             closingModal: function() {
                 this.$emit("close-modal");
-                // console.log("click click");
                 location.hash = "";
             }
         }
-    }); // closes Vue component
+    }); // close Vue component
 
     new Vue({
         // vue instance
         el: "#main",
-        // data is extremely important
         data: {
             conditionInVueInstance: false,
             imageThatWasClicked: location.hash.slice(1),
@@ -89,13 +78,12 @@
             },
             show: false,
             imageUploading: false
-        }, // closes DATA - comma needed
+        },
         mounted: function() {
             var self = this;
             axios
                 .get("/images" + this.imageThatWasClicked)
                 .then(function(response) {
-                    console.log(">>> GET response.data", response.data);
                     self.images = response.data;
                     if (
                         self.images[self.images.length - 1].id !=
@@ -103,10 +91,9 @@
                     ) {
                         self.showMoreImages = true;
                     }
-                    console.log("// GET Images - self.images", self.images);
                 })
                 .catch(function(err) {
-                    console.log("error (upload)", err.message);
+                    console.log("error (upload): ", err.message);
                 });
 
             addEventListener("hashchange", function() {
@@ -122,21 +109,11 @@
         // }
         methods: {
             toggleImageModal: function(image) {
-                // console.log("toggleImageModal running");
-                // console.log(
-                //     "this.conditionInVueInstance",
-                //     this.conditionInVueInstance
-                // );
-                console.log("// Images:", image);
                 // this.conditionInVueInstance = true;
                 this.imageThatWasClicked = image;
                 location.hash = "";
-                console.log("// This in the vue instance", this);
-            }, // always use a comma
-
-            // every single function that runs in response to an event will be written here
+            },
             handleFileChange: function(e) {
-                // console.log("handleFileChange e", e.target.files[0]); // from object data in inspector
                 this.form.file = e.target.files[0];
                 console.log("Info of image to upload", this.form.file);
             },
@@ -145,8 +122,6 @@
                 axios
                     .get("/more/" + this.images[this.images.length - 1].id)
                     .then(function(resp) {
-                        // console.log("resp.data", resp.data);
-                        // concatenates the response for new images onto the existing array of images
                         self.images = self.images.concat(resp.data);
                         if (
                             self.images[self.images.length - 1].id ===

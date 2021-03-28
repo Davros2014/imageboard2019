@@ -4,7 +4,9 @@ node_modules
 examples
 .sass-cache
 normalize.css
-fonts
 style.css.map
 MD_files
 FINLAND_IMAGES
+config.json
+/alt_s3
+data-Images.rtf
