@@ -3,7 +3,6 @@ node_modules
 .DS_Store
 examples
 .sass-cache
-normalize.css
 style.css.map
 MD_files
 FINLAND_IMAGES
