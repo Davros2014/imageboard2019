@@ -72,7 +72,7 @@ p {
   margin: 0 auto;
 }
 .wrapper .container {
-  margin-top: 25vh;
+  margin-top: 20vh;
   display: flex;
   position: relative;
   width: 90vw;
@@ -82,6 +82,7 @@ p {
 @media (min-width: 767px) {
   .wrapper .container {
     width: 70vw;
+    margin-top: 22vh;
   }
 }
 @media (min-width: 979px) {
@@ -95,11 +96,10 @@ p {
   box-shadow: 1px 1px 3px 3px rgba(0, 0, 0, 0.05);
   text-align: center;
   margin: 0 auto;
-  overflow: hidden;
   width: 80vw;
   height: 80vw;
   overflow: hidden;
-  border-radius: 4px;
+  border-radius: 6px;
   padding: clamp(1.5rem, 1.25vw, 2vw);
   margin-bottom: 6vw;
   transition: 0.25 all ease-in-out;
@@ -129,7 +129,32 @@ p {
   align-items: flex-start;
   flex-direction: column;
   text-align: left;
-  padding: 2.5vw;
+  padding: 6vw;
+}
+@media (min-width: 767px) {
+  .wrapper .container .listItem .imageText {
+    padding: 2.5vw;
+  }
+}
+.wrapper .container .listItem .imageText .imageHash {
+  font-family: "montserratregular", Helvetica, sans-serif;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  color: #e6e4df;
+  font-weight: 100;
+  line-height: 1.25;
+  letter-spacing: 0.001rem;
+  position: absolute;
+  top: 6vw;
+  left: 6vw;
+  opacity: 0;
+  transition: 0.55s all ease-in-out;
+  transform: translateX(-20%);
+}
+@media (min-width: 767px) {
+  .wrapper .container .listItem .imageText .imageHash {
+    top: 2.5vw;
+    left: 2.5vw;
+  }
 }
 .wrapper .container .listItem .imageText:hover {
   opacity: 1;
@@ -149,24 +174,19 @@ p {
   filter: grayscale(1);
   cursor: pointer;
 }
-
-/* =============== MEDIA QUERIES =============== */
-@media all and (min-width: 767px) and (max-width: 979px) {
-  .listItem {
-    width: 43vw;
-    height: 43vw;
-  }
+.wrapper .container .listItem:hover .imageText > .imageHeader {
+  transform: translateY(0);
+  opacity: 1;
 }
-@media all and (max-width: 767px) {
-  .container {
-    width: 90vw;
-  }
-
-  .listItem {
-    width: 80vw;
-    height: 80vw;
-  }
+.wrapper .container .listItem:hover .imageText > .imagebody {
+  transform: translateY(0);
+  opacity: 1;
 }
+.wrapper .container .listItem:hover .imageText > .imageHash {
+  transform: translateX(0);
+  opacity: 1;
+}
+
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.5s;
@@ -202,7 +222,7 @@ p {
 
 .imageHeader {
   font-family: "montserratregular", Helvetica, sans-serif;
-  font-size: clamp(1.8rem, 2vw, 2.4rem);
+  font-size: clamp(2rem, 2vw, 2.4rem);
   color: #e6e4df;
   font-weight: 700;
   line-height: 1.25;
@@ -215,7 +235,7 @@ p {
 
 .imagebody {
   font-family: "montserratregular", Helvetica, sans-serif;
-  font-size: clamp(1rem, 2vw, 1.8rem);
+  font-size: clamp(2rem, 2vw, 1.8rem);
   color: #e6e4df;
   font-weight: 100;
   line-height: 1.25;
@@ -229,36 +249,6 @@ p {
 
 .userDetails {
   display: flex;
-}
-
-.listItem:hover .imageText > .imageHeader {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-.listItem:hover .imageText > .imagebody {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-.imageHash {
-  font-family: "montserratregular", Helvetica, sans-serif;
-  font-size: clamp(1.8rem, 3vw, 2.4rem);
-  color: #e6e4df;
-  font-weight: 100;
-  line-height: 1.25;
-  letter-spacing: 0.001rem;
-  position: absolute;
-  top: 2.5vw;
-  left: 2.5vw;
-  opacity: 0;
-  transition: 0.55s all ease-in-out;
-  transform: translateX(-20%);
-}
-
-.listItem:hover .imageText > .imageHash {
-  opacity: 1;
-  transform: translateX(0);
 }
 
 #getMore {
@@ -616,7 +606,7 @@ textarea:focus {
 
 .userDescription {
   font-family: "montserratregular", Helvetica, sans-serif;
-  font-size: clamp(1.8rem, 2vw, 2.4rem);
+  font-size: clamp(2rem, 2vw, 2.4rem);
   color: #e6e4df;
   font-weight: 700;
   line-height: 1.25;
@@ -654,7 +644,7 @@ textarea:focus {
 
 .viewComments {
   font-family: "montserratregular", Helvetica, sans-serif;
-  font-size: clamp(1.8rem, 2vw, 2.4rem);
+  font-size: clamp(2rem, 2vw, 2.4rem);
   color: #e6e4df;
   font-weight: 700;
   line-height: 1.25;

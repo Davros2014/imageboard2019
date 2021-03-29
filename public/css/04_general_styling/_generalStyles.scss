@@ -64,7 +64,7 @@ p {
     justify-content: space-between;
     margin: 0 auto;
     & .container {
-        margin-top: 25vh;
+        margin-top: 20vh;
         display: flex;
         position: relative;
         width: 90vw;
@@ -72,6 +72,7 @@ p {
         justify-content: space-between;
         @include minWidthQuery("767px") {
             width: 70vw;
+            margin-top: 22vh;
         }
         @include minWidthQuery("979px") {
             width: 90vw;
@@ -82,11 +83,10 @@ p {
             box-shadow: 1px 1px 3px 3px rgba(0, 0, 0, 0.05);
             text-align: center;
             margin: 0 auto;
-            overflow: hidden;
             width: 80vw;
             height: 80vw;
             overflow: hidden;
-            border-radius: 4px;
+            border-radius: 6px;
             padding: clamp(1.5rem, 1.25vw, 2vw);
             margin-bottom: 6vw;
             transition: 0.25 all ease-in-out;
@@ -98,7 +98,6 @@ p {
                 width: 26vw;
                 height: 26vw;
             }
-
             & .imageText {
                 position: absolute;
                 top: 50%;
@@ -112,7 +111,23 @@ p {
                 align-items: flex-start;
                 flex-direction: column;
                 text-align: left;
-                padding: 2.5vw;
+                padding: 6vw;
+                @include minWidthQuery("767px") {
+                    padding: 2.5vw;
+                }
+                & .imageHash {
+                    @include H2-Headers-montserrat;
+                    position: absolute;
+                    top: 6vw;
+                    left: 6vw;
+                    opacity: 0;
+                    transition: 0.55s all ease-in-out;
+                    transform: translateX(-20%);
+                    @include minWidthQuery("767px") {
+                        top: 2.5vw;
+                        left: 2.5vw;
+                    }
+                }
                 &:hover {
                     opacity: 1;
                     background: rgba(0, 0, 0, 0.8);
@@ -132,26 +147,19 @@ p {
                     cursor: pointer;
                 }
             }
+            &:hover .imageText > .imageHeader {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            &:hover .imageText > .imagebody {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            &:hover .imageText > .imageHash {
+                transform: translateX(0);
+                opacity: 1;
+            }
         }
-    }
-}
-
-/* =============== MEDIA QUERIES =============== */
-
-@media all and (min-width: 767px) and (max-width: 979px) {
-    .listItem {
-        width: 43vw;
-        height: 43vw;
-    }
-}
-
-@media all and (max-width: 767px) {
-    .container {
-        width: 90vw;
-    }
-    .listItem {
-        width: 80vw;
-        height: 80vw;
     }
 }
 
@@ -216,27 +224,6 @@ p {
 }
 .userDetails {
     display: flex;
-}
-.listItem:hover .imageText > .imageHeader {
-    transform: translateY(0);
-    opacity: 1;
-}
-.listItem:hover .imageText > .imagebody {
-    transform: translateY(0);
-    opacity: 1;
-}
-.imageHash {
-    @include H2-Headers-montserrat;
-    position: absolute;
-    top: 2.5vw;
-    left: 2.5vw;
-    opacity: 0;
-    transition: 0.55s all ease-in-out;
-    transform: translateX(-20%);
-}
-.listItem:hover .imageText > .imageHash {
-    opacity: 1;
-    transform: translateX(0);
 }
 
 #getMore {
