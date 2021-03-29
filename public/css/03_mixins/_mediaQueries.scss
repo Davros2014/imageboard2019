@@ -1,0 +1,15 @@
+@mixin maxWidthQuery($from) {
+    @media (max-width: $from) {
+        @content;
+    }
+}
+@mixin minWidthQuery($from) {
+    @media (min-width: $from) {
+        @content;
+    }
+}
+
+// example...
+// @include mq("900px") {
+//   ///styles here
+// }

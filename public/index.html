@@ -53,9 +53,9 @@
                     <a :href="'#' + img.id">
                         <img class="galleryImage" :src=img.url  alt="" />
                         <div class="imageText">
-                            <p id="hashsign">#{{img.id}}</p>
-                            <p id="one">{{img.title}}</p>
-                            <p id="two">{{img.description}}</p>
+                            <h2 class="imageHash">#{{img.id}}</h2>
+	                            <h3 class="imageHeader">{{img.title}}</h3>
+	                            <p class="imagebody">{{img.description.substring(0,40)+"..." }}</p>
                         </div>
                     </a>
                 </li>

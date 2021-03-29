@@ -41,61 +41,12 @@ $mainheaderfont: "montserratregular";
 
 //* ======== FONTS MIXINS
 // Main Headers
-@mixin h1-headers-playfair-display(
-    $size: calc(3rem + 0.8vw),
-    $colour: $primary-color,
-    $weight: 700,
-    $lh: 0.95,
-    $ls: 0.05rem
-) {
-    font-family: "playfair_displayregular", Georgia, serif;
-    @if $size {
-        font-size: $size;
-    }
-    @if $colour {
-        color: $colour;
-    }
-    @if $weight {
-        font-weight: $weight;
-    }
-    @if $lh {
-        line-height: $lh;
-    }
-    @if $ls {
-        letter-spacing: $ls;
-    }
-}
-@mixin H5-Headers-playfair-display(
-    $size: calc(1rem + 0.8vw),
-    $colour: $complimentary-color,
-    $weight: 300,
-    $lh: 0.7,
-    $ls: 0.05rem
-) {
-    font-family: "playfair_displayregular", Georgia, serif;
-    @if $size {
-        font-size: $size;
-    }
-    @if $colour {
-        color: $colour;
-    }
-    @if $weight {
-        font-weight: $weight;
-    }
-    @if $lh {
-        line-height: $lh;
-    }
-    @if $ls {
-        letter-spacing: $ls;
-    }
-}
-// Main Body Text
 
 @mixin BodyText-montserrat(
-    $size: calc(1rem + 0.6vw),
-    $colour: $complimentary-color,
+    $size: clamp(1rem, 2vw, 1.8rem),
+    $colour: $light-accent-color,
     $weight: 100,
-    $lh: 1.5,
+    $lh: 1.25,
     $ls: 0.05rem
 ) {
     font-family: "montserratregular", Helvetica, sans-serif;
@@ -116,8 +67,8 @@ $mainheaderfont: "montserratregular";
     }
 }
 @mixin H1-Headers-montserrat(
-    $size: calc(2rem + 0.6vw),
-    $colour: $primary-color,
+    $size: clamp(2.4rem, 5vw, 3.6rem),
+    $colour: $light-accent-color,
     $weight: 100,
     $lh: 1.07,
     $ls: 0.001rem
@@ -140,8 +91,8 @@ $mainheaderfont: "montserratregular";
     }
 }
 @mixin H2-Headers-montserrat(
-    $size: calc(1.8rem + 0.5vw),
-    $colour: $complimentary-color,
+    $size: clamp(1.8rem, 3vw, 2.4rem),
+    $colour: $light-accent-color,
     $weight: 100,
     $lh: 1.25,
     $ls: 0.001rem
@@ -164,9 +115,9 @@ $mainheaderfont: "montserratregular";
     }
 }
 @mixin H3-Headers-montserrat(
-    $size: calc(1.1rem + 0.5vw),
-    $colour: $complimentary-color,
-    $weight: 100,
+    $size: clamp(1.8rem, 2vw, 2.4rem),
+    $colour: $light-accent-color,
+    $weight: 700,
     $lh: 1.25,
     $ls: 0.001rem
 ) {
@@ -212,7 +163,7 @@ $mainheaderfont: "montserratregular";
     }
 }
 @mixin H5-Headers-montserrat(
-    $size: calc(1rem + 0.3vw),
+    $size: clamp(1.4rem, 2vw, 1.6rem),
     $colour: $complimentary-color,
     $weight: 100,
     $lh: 1.3,

@@ -1,10 +1,9 @@
-/////////////////////////////////////////////////////////////////////
-// INPUT PHOTO FIELD ////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////
+// INPUT PHOTO FIELD //////////////////////////////
+///////////////////////////////////////////////////
 
-// HEADER CONTAINER
+// HEADER CONTAINER ///////////////////////////////
 .formContainer {
-    // height: 17vh;
     background: $header-color;
     position: fixed;
     display: flex;
@@ -16,49 +15,54 @@
     width: 100vw;
     margin: 0 auto;
     z-index: 100;
+    & .identItems {
+        background: $header-color;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+        padding: calc(1rem + 1vw);
+        padding-bottom: calc(2rem + 1vw);
+        z-index: 5;
+        width: 100%;
+        & .logoForm {
+            width: clamp(8rem, 7vw, 9vw);
+            margin-bottom: 0;
+        }
+        & .headerText {
+            border-top: 1px solid $line-color;
+            @include H5-Headers-montserrat;
+            padding-top: 0.5rem;
+            font-style: italic;
+            color: $secondary-color;
+            margin-top: 2rem;
+            letter-spacing: 0.05rem;
+            text-align: center;
+        }
+    }
+    & #camera {
+        position: absolute;
+        bottom: 0;
+        transform: translate(-50%, 50%);
+        left: 50%;
+        width: calc(2rem + 1vw);
+        cursor: pointer;
+        z-index: 200;
+        background: $header-color;
+        border-radius: 100%;
+        border: 1px solid $backgroundColour;
+        transition: all 0.25s ease-in-out;
+        &:hover {
+            transition: all 0.25s ease-in-out;
+            border: 1px solid $backgroundColour;
+            background: $secondary-color;
+        }
+    }
 }
-.identItems {
-    background: $header-color;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: auto;
-    padding: calc(1rem + 1vw);
-    z-index: 5;
-    width: 100%;
-}
-.logoForm {
-    height: 3vw;
-    margin-bottom: 0;
-}
-.headerText {
-    border-top: 1px solid $line-color;
-    font-size: calc(0.85rem + 0.5vw);
-    padding-top: 0.25rem;
-    color: $secondary-color;
-    margin-top: 2rem;
-    letter-spacing: 0.05rem;
-    text-align: center;
-}
-#camera {
-    position: absolute;
-    bottom: 0;
-    transform: translate(-50%, 50%);
-    left: 50%;
-    width: calc(2rem + 1vw);
-    cursor: pointer;
-    z-index: 200;
-    background: $header-color;
-    border-radius: 100%;
-    border: 1px solid $backgroundColour;
-    transition: all 0.25s ease-in-out;
-}
-#camera:hover {
-    transition: all 0.25s ease-in-out;
-    border: 1px solid $backgroundColour;
-    background: $secondary-color;
-}
+
+///////////////////////////////////////////////////
+
 //
 // #camera_upload {
 //     position: absolute;
@@ -286,9 +290,6 @@ textarea:focus {
 }
 
 @media all and (max-width: 780px) {
-    .logoForm {
-        height: 5vw;
-    }
     .inputsContainer {
         flex-direction: column;
     }

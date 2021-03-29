@@ -1,15 +1,15 @@
-/* =================================
-IMPORTED STYLES
-================================= */
+//////////////////////////////////////
+// IMPORTED STYLES  //////////////////
+//////////////////////////////////////
 
 @import "01_plugins/flexbox";
 @import "01_plugins/cssGrid";
+//
 @import "02_variables/colours_fonts";
+//
 @import "03_mixins/transitions";
-// @import "04_general_styling/01A_loader";
-
-@import "04_general_styling/01generalStyles";
-// @import "04_general_styling/02navStyles";
-// @import "04_general_styling/03formStyles";
-@import "04_general_styling/04inputPhotoField";
-@import "04_general_styling/05modal";
+@import "03_mixins/mediaQueries";
+//
+@import "04_general_styling/generalStyles";
+@import "04_general_styling/inputPhotoField";
+@import "04_general_styling/modal";
