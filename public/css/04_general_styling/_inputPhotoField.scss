@@ -27,11 +27,7 @@
         z-index: 5;
         width: 100%;
         & .logoForm {
-            width: clamp(30%, 7vw, 9vw);
-            @include maxWidthQuery("767px") {
-                max-width: 25%;
-                background: red;
-            }
+            width: clamp(100px, 7vw, 9vw);
             margin-bottom: 0;
         }
         & .headerText {

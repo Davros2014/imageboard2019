@@ -235,7 +235,7 @@ p {
 
 .imagebody {
   font-family: "montserratregular", Helvetica, sans-serif;
-  font-size: clamp(2rem, 2vw, 1.8rem);
+  font-size: clamp(2rem, 3vw, 1.8rem);
   color: #e6e4df;
   font-weight: 100;
   line-height: 1.25;
@@ -292,14 +292,8 @@ p {
   width: 100%;
 }
 .formContainer .identItems .logoForm {
-  width: clamp(30%, 7vw, 9vw);
+  width: clamp(100px, 7vw, 9vw);
   margin-bottom: 0;
-}
-@media (max-width: 767px) {
-  .formContainer .identItems .logoForm {
-    max-width: 25%;
-    background: red;
-  }
 }
 .formContainer .identItems .headerText {
   border-top: 1px solid rgba(187, 187, 187, 0.25);
