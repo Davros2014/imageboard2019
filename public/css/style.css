@@ -235,7 +235,7 @@ p {
 
 .imagebody {
   font-family: "montserratregular", Helvetica, sans-serif;
-  font-size: clamp(2rem, 3vw, 1.8rem);
+  font-size: clamp(1.6rem, 1.6vw, 2rem);
   color: #e6e4df;
   font-weight: 100;
   line-height: 1.25;
@@ -286,27 +286,37 @@ p {
   align-items: center;
   justify-content: center;
   margin: auto;
-  padding: calc(1rem + 1vw);
-  padding-bottom: calc(2rem + 1vw);
+  padding: calc(1rem + 2vw);
   z-index: 5;
   width: 100%;
 }
+@media (min-width: 767px) {
+  .formContainer .identItems {
+    padding: calc(1rem + 1vw);
+    padding-bottom: calc(2rem + 1vw);
+  }
+}
 .formContainer .identItems .logoForm {
-  width: clamp(100px, 7vw, 9vw);
   margin-bottom: 0;
+  width: 25%;
+}
+@media (min-width: 767px) {
+  .formContainer .identItems .logoForm {
+    width: 9vw;
+  }
 }
 .formContainer .identItems .headerText {
   border-top: 1px solid rgba(187, 187, 187, 0.25);
   font-family: "montserratregular", Helvetica, sans-serif;
-  font-size: clamp(1.4rem, 2vw, 1.6rem);
-  color: #4c4c4c;
+  font-size: clamp(1.6rem, 1.6vw, 2rem);
+  color: #e6e4df;
   font-weight: 100;
-  line-height: 1.3;
-  letter-spacing: 0.001rem;
+  line-height: 1.25;
+  letter-spacing: 0.05rem;
   padding-top: 0.5rem;
   font-style: italic;
   color: #934d7c;
-  margin-top: 2rem;
+  margin-top: 1rem;
   letter-spacing: 0.05rem;
   text-align: center;
 }

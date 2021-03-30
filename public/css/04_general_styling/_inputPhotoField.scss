@@ -22,21 +22,28 @@
         align-items: center;
         justify-content: center;
         margin: auto;
-        padding: calc(1rem + 1vw);
-        padding-bottom: calc(2rem + 1vw);
+        padding: calc(1rem + 2vw);
+        @include minWidthQuery("767px") {
+            padding: calc(1rem + 1vw);
+            padding-bottom: calc(2rem + 1vw);
+        }
         z-index: 5;
         width: 100%;
         & .logoForm {
-            width: clamp(100px, 7vw, 9vw);
+            // width: clamp(100px, 7vw, 9vw);
             margin-bottom: 0;
+            width: 25%;
+            @include minWidthQuery("767px") {
+                width: 9vw;
+            }
         }
         & .headerText {
             border-top: 1px solid $line-color;
-            @include H5-Headers-montserrat;
+            @include BodyText-montserrat;
             padding-top: 0.5rem;
             font-style: italic;
             color: $secondary-color;
-            margin-top: 2rem;
+            margin-top: 1rem;
             letter-spacing: 0.05rem;
             text-align: center;
         }

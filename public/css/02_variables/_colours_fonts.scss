@@ -43,7 +43,7 @@ $mainheaderfont: "montserratregular";
 // Main Headers
 
 @mixin BodyText-montserrat(
-    $size: clamp(2rem, 3vw, 1.8rem),
+    $size: clamp(1.6rem, 1.6vw, 2rem),
     $colour: $light-accent-color,
     $weight: 100,
     $lh: 1.25,
