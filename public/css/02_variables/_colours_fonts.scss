@@ -10,6 +10,7 @@ IMPORTED FONTS
 $primary-color: rgba(36, 37, 38, 1); // greeny color
 // $secondary-color: rgba(147, 78, 86, 1); // dark blue
 $secondary-color: rgba(147, 77, 124, 1);
+$secondary-color: rgba(206, 59, 157, 1);
 $secondary-color-75: rgba(12, 8, 76, 0.75);
 $third-color: rgba(9, 99, 134, 0.75); // light blue
 $fourth-color: rgba(22, 175, 203, 0.35); // beige ;
@@ -43,7 +44,7 @@ $mainheaderfont: "montserratregular";
 // Main Headers
 
 @mixin BodyText-montserrat(
-    $size: clamp(1.6rem, 1.6vw, 2rem),
+    $size: clamp(1.8rem, 1.5vw, 2rem),
     $colour: $light-accent-color,
     $weight: 100,
     $lh: 1.25,
@@ -115,7 +116,7 @@ $mainheaderfont: "montserratregular";
     }
 }
 @mixin H3-Headers-montserrat(
-    $size: clamp(2rem, 2vw, 2.4rem),
+    $size: clamp(2.4rem, 2vw, 2.8rem),
     $colour: $light-accent-color,
     $weight: 700,
     $lh: 1.25,

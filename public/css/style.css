@@ -70,24 +70,22 @@ p {
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
+  display: flex;
+  max-width: 90vw;
 }
 .wrapper .container {
   margin-top: 20vh;
-  display: flex;
-  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(calc((90vw - 220px) / 12), 1fr));
+  grid-auto-rows: minmax(calc((90vw - 220px) / 12), 1fr);
+  grid-gap: 20px;
   width: 90vw;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 @media (min-width: 767px) {
   .wrapper .container {
-    width: 70vw;
     margin-top: 22vh;
-  }
-}
-@media (min-width: 979px) {
-  .wrapper .container {
-    width: 90vw;
   }
 }
 .wrapper .container .listItem {
@@ -96,24 +94,23 @@ p {
   box-shadow: 1px 1px 3px 3px rgba(0, 0, 0, 0.05);
   text-align: center;
   margin: 0 auto;
-  width: 80vw;
-  height: 80vw;
+  grid-column: 1/-1;
+  grid-row: auto;
   overflow: hidden;
   border-radius: 6px;
-  padding: clamp(1.5rem, 1.25vw, 2vw);
-  margin-bottom: 6vw;
+  padding: clamp(1.35rem, 1vw, 1.75rem);
   transition: 0.25 all ease-in-out;
 }
 @media (min-width: 767px) {
   .wrapper .container .listItem {
-    width: 43vw;
-    height: 43vw;
+    grid-column: span 4;
+    grid-row: span 4;
   }
 }
 @media (min-width: 979px) {
   .wrapper .container .listItem {
-    width: 26vw;
-    height: 26vw;
+    grid-column: span 3;
+    grid-row: span 3;
   }
 }
 .wrapper .container .listItem .imageText {
@@ -222,7 +219,7 @@ p {
 
 .imageHeader {
   font-family: "montserratregular", Helvetica, sans-serif;
-  font-size: clamp(2rem, 2vw, 2.4rem);
+  font-size: clamp(2.4rem, 2vw, 2.8rem);
   color: #e6e4df;
   font-weight: 700;
   line-height: 1.25;
@@ -235,12 +232,12 @@ p {
 
 .imagebody {
   font-family: "montserratregular", Helvetica, sans-serif;
-  font-size: clamp(1.6rem, 1.6vw, 2rem);
+  font-size: clamp(1.8rem, 1.5vw, 2rem);
   color: #e6e4df;
   font-weight: 100;
   line-height: 1.25;
   letter-spacing: 0.05rem;
-  color: #934d7c;
+  color: #ce3b9d;
   top: -100%;
   opacity: 0;
   transition: 0.75s all ease-in-out;
@@ -254,7 +251,7 @@ p {
 #getMore {
   padding: 1rem 2rem;
   background: #242526;
-  color: #934d7c;
+  color: #ce3b9d;
   margin: 0 auto;
   margin-bottom: 2rem;
   transition: all 0.25s ease-in-out;
@@ -296,6 +293,19 @@ p {
     padding-bottom: calc(2rem + 1vw);
   }
 }
+.formContainer .identItems::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.25;
+  background: linear-gradient(180deg, #ce3b9d, transparent);
+  z-index: -1;
+}
 .formContainer .identItems .logoForm {
   margin-bottom: 0;
   width: 25%;
@@ -308,14 +318,14 @@ p {
 .formContainer .identItems .headerText {
   border-top: 1px solid rgba(187, 187, 187, 0.25);
   font-family: "montserratregular", Helvetica, sans-serif;
-  font-size: clamp(1.6rem, 1.6vw, 2rem);
+  font-size: clamp(1.8rem, 1.5vw, 2rem);
   color: #e6e4df;
   font-weight: 100;
   line-height: 1.25;
   letter-spacing: 0.05rem;
   padding-top: 0.5rem;
   font-style: italic;
-  color: #934d7c;
+  color: #ce3b9d;
   margin-top: 1rem;
   letter-spacing: 0.05rem;
   text-align: center;
@@ -336,7 +346,7 @@ p {
 .formContainer #camera:hover {
   transition: all 0.25s ease-in-out;
   border: 1px solid #e2e2e2;
-  background: #934d7c;
+  background: #ce3b9d;
 }
 
 .formFieldsWrapper {
@@ -380,7 +390,7 @@ p {
 .uploadButton {
   text-transform: uppercase;
   font-size: calc(0.75rem + 0.5vw);
-  color: #934d7c;
+  color: #ce3b9d;
   background: #242526;
   border: none;
   padding: 0.9rem 2.25rem;
@@ -391,7 +401,7 @@ p {
 
 .uploadButton:hover {
   color: #e6e4df;
-  background: #934d7c;
+  background: #ce3b9d;
 }
 
 label[for=file-input] {
@@ -415,7 +425,7 @@ input[type=file]:focus {
 }
 
 input[type=file]::-webkit-file-upload-button {
-  color: #934d7c;
+  color: #ce3b9d;
   font-size: calc(0.75rem + 0.5vw);
   background: #242526;
   border: 0;
@@ -430,7 +440,7 @@ input[type=file]::-webkit-file-upload-button {
 
 input[type=file]::-webkit-file-upload-button:hover {
   color: #242526;
-  background: #934d7c;
+  background: #ce3b9d;
 }
 
 input#file-input:active,
@@ -440,11 +450,11 @@ input#file-input:focus {
 }
 
 input[type=file]::-ms-browse {
-  background: #934d7c;
+  background: #ce3b9d;
   border: 0;
   padding: 0rem 1rem;
   cursor: pointer;
-  color: #934d7c;
+  color: #ce3b9d;
   outline: none;
 }
 
@@ -456,7 +466,7 @@ input[type=file]::-ms-browse {
 
 #file-input:focus {
   background: none;
-  color: #934d7c;
+  color: #ce3b9d;
 }
 
 /* =============== CONTACT SECTION - HOME PAGE =============== */
@@ -480,7 +490,7 @@ input.genInput {
   padding: calc(1rem + 1vw);
   margin-bottom: 0.75vw;
   font-size: calc(0.75rem + 0.5vw);
-  color: #934d7c;
+  color: #ce3b9d;
   background: #242526;
   opacity: 1;
 }
@@ -525,7 +535,7 @@ textarea:focus {
   background: #4c4c4c;
   border: none;
   color: #333333;
-  color: #934d7c;
+  color: #ce3b9d;
   outline: none;
 }
 
@@ -591,7 +601,7 @@ textarea:focus {
   font-size: calc(1rem + 0.5vw);
   line-height: 1vw;
   font-weight: bold;
-  color: #934d7c;
+  color: #ce3b9d;
 }
 
 #close-modal:hover {
@@ -610,13 +620,13 @@ textarea:focus {
   font-weight: 100;
   line-height: 1.07;
   letter-spacing: 0.001rem;
-  color: #934d7c;
+  color: #ce3b9d;
   margin-bottom: 0;
 }
 
 .userDescription {
   font-family: "montserratregular", Helvetica, sans-serif;
-  font-size: clamp(2rem, 2vw, 2.4rem);
+  font-size: clamp(2.4rem, 2vw, 2.8rem);
   color: #e6e4df;
   font-weight: 700;
   line-height: 1.25;
@@ -630,7 +640,7 @@ textarea:focus {
   font-weight: 100;
   line-height: 1.3;
   letter-spacing: 0.001rem;
-  color: #934d7c;
+  color: #ce3b9d;
 }
 
 .imageID {
@@ -654,7 +664,7 @@ textarea:focus {
 
 .viewComments {
   font-family: "montserratregular", Helvetica, sans-serif;
-  font-size: clamp(2rem, 2vw, 2.4rem);
+  font-size: clamp(2.4rem, 2vw, 2.8rem);
   color: #e6e4df;
   font-weight: 700;
   line-height: 1.25;
@@ -670,7 +680,7 @@ textarea:focus {
   width: 80%;
   display: block;
   min-height: 7rem;
-  background: #934d7c;
+  background: #ce3b9d;
   border-radius: 5px;
   padding: 1rem 2rem;
   color: #e6e4df;
@@ -706,7 +716,7 @@ input::placeholder:hover {
 }
 
 .formUser input:hover {
-  background: #934d7c;
+  background: #ce3b9d;
   cursor: pointer;
   color: black;
 }
@@ -729,7 +739,7 @@ input::placeholder:hover {
 
 .formUser button:hover,
 .formUser button:focus {
-  background: #934d7c;
+  background: #ce3b9d;
   cursor: pointer;
 }
 
@@ -737,7 +747,7 @@ input::placeholder:hover {
   width: 100%;
   height: auto;
   display: inline-block;
-  background: #934d7c;
+  background: #ce3b9d;
   border-radius: 5px;
   padding: 1rem 2rem;
   color: #242526;

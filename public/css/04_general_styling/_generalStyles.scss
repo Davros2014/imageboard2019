@@ -63,40 +63,48 @@ p {
     display: flex;
     justify-content: space-between;
     margin: 0 auto;
+    // background: red;
+    display: flex;
+    max-width: 90vw;
+
     & .container {
         margin-top: 20vh;
-        display: flex;
-        position: relative;
+        display: grid;
+        grid-template-columns: repeat(
+            auto-fit,
+            minmax(calc((90vw - 220px) / 12), 1fr)
+        );
+        grid-auto-rows: minmax(calc((90vw - 220px) / 12), 1fr);
+        grid-gap: 20px; //12 columns - 11 gaps = 20 x 11 = 220px
         width: 90vw;
         flex-wrap: wrap;
         justify-content: space-between;
         @include minWidthQuery("767px") {
-            width: 70vw;
             margin-top: 22vh;
         }
-        @include minWidthQuery("979px") {
-            width: 90vw;
-        }
+        // @include minWidthQuery("979px") {
+        //     margin-top: 20vh;
+        //     width: 90vw;
+        // }
         & .listItem {
             position: relative;
             background: rgba(270, 270, 270, 0.76);
             box-shadow: 1px 1px 3px 3px rgba(0, 0, 0, 0.05);
             text-align: center;
             margin: 0 auto;
-            width: 80vw;
-            height: 80vw;
+            grid-column: 1 / -1;
+            grid-row: auto;
             overflow: hidden;
             border-radius: 6px;
-            padding: clamp(1.5rem, 1.25vw, 2vw);
-            margin-bottom: 6vw;
+            padding: clamp(1.35rem, 1vw, 1.75rem);
             transition: 0.25 all ease-in-out;
             @include minWidthQuery("767px") {
-                width: 43vw;
-                height: 43vw;
+                grid-column: span 4;
+                grid-row: span 4;
             }
             @include minWidthQuery("979px") {
-                width: 26vw;
-                height: 26vw;
+                grid-column: span 3;
+                grid-row: span 3;
             }
             & .imageText {
                 position: absolute;
