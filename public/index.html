@@ -16,7 +16,7 @@
         <form action="">
             <div class="formContainer" id="demo">
                 <div class="identItems">
-                    <img class="logoForm" src="./images/NN.svg" alt="">
+                    <img class="logoForm" src="./images/Nordic.png" alt="">
                     <h5 class="headerText">Celebrating the beauty, the peculiarities and the melancholia of the Nordics </h5>
                 </div>
                 <img @click="show = !show" id="camera" src="./images/CAM.png" alt="">
@@ -51,7 +51,7 @@
                 <!-- <li v-if='images.length > 0'  v-for='img in images' @click='toggleImageModal(img.id)' class="listItem"> -->
                 <li v-if='images.length > 0'  v-for='img in images' class="listItem">
                     <a :href="'#' + img.id">
-                        <img class="galleryImage" :src=img.url  alt="" />
+                        <img class="galleryImage" :src=img.url  alt="Image+ '#' + img.id" />
                         <div class="imageText">
                             <h2 class="imageHash">#{{img.id}}</h2>
 	                            <h3 class="imageHeader">{{img.title}}</h3>

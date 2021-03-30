@@ -295,6 +295,12 @@ p {
   width: clamp(30%, 7vw, 9vw);
   margin-bottom: 0;
 }
+@media (max-width: 767px) {
+  .formContainer .identItems .logoForm {
+    max-width: 25%;
+    background: red;
+  }
+}
 .formContainer .identItems .headerText {
   border-top: 1px solid rgba(187, 187, 187, 0.25);
   font-family: "montserratregular", Helvetica, sans-serif;
