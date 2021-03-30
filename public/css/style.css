@@ -292,7 +292,7 @@ p {
   width: 100%;
 }
 .formContainer .identItems .logoForm {
-  width: clamp(3vw, 7vw, 9vw);
+  width: clamp(30%, 7vw, 9vw);
   margin-bottom: 0;
 }
 .formContainer .identItems .headerText {
