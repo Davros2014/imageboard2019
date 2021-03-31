@@ -114,8 +114,8 @@
                         <form id="commentFormContainer" action="">
                             <input class="commentInput" v-model='form.comment' autocomplete="off" autocorrect="off" spellcheck="false" name="description" placeholder="Please post your comment here" type="text">
                             <div class="formUser">
-                                <input v-model='form.username' autocomplete="off" autocorrect="off" spellcheck="false" name='username' placeholder='Enter your username' type='text' required onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your username'" >
-                                <button  @click.prevent.default='uploadComment'>Submit comment</button>
+                                <input v-model='form.username' autocomplete="off" autocorrect="off" spellcheck="false" name='username' placeholder='Enter your username' type='text' required onblur="this.placeholder = 'Enter your username'" >
+                                <button v-if='form.comment' v-if='form.username' @click.prevent.default='uploadComment'>Submit comment</button>
                             </div>
                         </form>
 

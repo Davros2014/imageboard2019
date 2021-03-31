@@ -1,38 +1,24 @@
-/*=================================
-IMPORTED FONTS
-=================================*/
-// @import url("/fonts/spartan/spartan_stylesheet.css");
-// @import url("/fonts/montserrat/montserrat_stylesheet.css");
-// @import url("/fonts/montserrat/montserrat_stylesheet.css");
-
-//* ========= GENERAL COLOURS
-
-$primary-color: rgba(36, 37, 38, 1); // greeny color
-// $secondary-color: rgba(147, 78, 86, 1); // dark blue
+// GENERAL COLOURS /////////////////////
+$primary-color: rgba(36, 37, 38, 1);
 $secondary-color: rgba(147, 77, 124, 1);
 $secondary-color: rgba(206, 59, 157, 1);
-$secondary-color-75: rgba(12, 8, 76, 0.75);
-$third-color: rgba(9, 99, 134, 0.75); // light blue
-$fourth-color: rgba(22, 175, 203, 0.35); // beige ;
+$accent-color-75: rgba(6, 4, 38, 0.75);
+$third-color: rgba(9, 99, 134, 0.75);
+$fourth-color: rgba(22, 175, 203, 0.63);
 $header-color: rgba(36, 37, 38, 1);
-// $complimentary-color: rgba(105, 105, 105, 1);
 $complimentary-color: rgba(76, 76, 76, 1);
 //
 $accent-color: rgba(51, 51, 51, 1);
 $light-accent-color: rgba(230, 228, 223, 1);
 //
 $backgroundColour: #e2e2e2;
-// $overlayColor: rgba(270, 270, 270, 0.05);
-$line-color: rgba(187, 187, 187, 0.25); // header color
+$line-color: rgba(187, 187, 187, 0.25);
 
-/* footer colors */
-
-//* ========= FONT COLOURS
-
-$primary-font-color: #969595; // main header grey
+// FONT COLOURS /////////////////////
+$primary-font-color: #969595;
 $bodyTextColor: rgba(51, 51, 51, 0.7);
 
-//* ========= FONTS
+// FONTS /////////////////////
 $bodytext: "montserratlight";
 $serifHeader: "playfair_displaybold";
 $serifBody: "playfair_displayregular";
@@ -40,9 +26,9 @@ $overlayText: "montserratsemi_bold";
 $spanText: "playfair_displayitalic";
 $mainheaderfont: "montserratregular";
 
-//* ======== FONTS MIXINS
-// Main Headers
+// FONTS MIXINS /////////////////////
 
+// HEADERS
 @mixin BodyText-montserrat(
     $size: clamp(1.8rem, 1.5vw, 2rem),
     $colour: $light-accent-color,

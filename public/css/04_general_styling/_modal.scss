@@ -104,10 +104,8 @@
                     &:focus {
                         transition: 0.25s background ease-in-out;
                         background: $secondary-color;
+                        color: rgba(270, 270, 270, 0.25);
                     }
-                }
-                &:hover::placeholder {
-                    color: red;
                 }
                 & .formUser {
                     input {
@@ -122,7 +120,6 @@
                         border-radius: 5px;
                         transition: 0.25s color ease-in-out;
                         color: $light-accent-color;
-
                         &::placeholder {
                             color: $light-accent-color;
                         }
@@ -130,6 +127,7 @@
                             transition: 0.25s background ease-in-out;
                             background: $secondary-color;
                             cursor: pointer;
+                            color: rgba(270, 270, 270, 0.25);
                         }
                     }
                     & button {
@@ -159,7 +157,6 @@
                 @include H4-Headers-montserrat;
                 margin-top: 3rem;
                 text-align: center;
-                // font-size: 2.5rem;
                 border-top: 1px solid rgba($complimentary-color, 0.8);
                 padding: 2rem;
             }
@@ -181,7 +178,8 @@
                     text-align: right;
                 }
                 &__comment {
-                    @include LightText-montserrat;
+                    @include H3-Headers-montserrat;
+                    font-size: clamp(1.6rem, 2vw, 1.8rem);
                     color: $light-accent-color;
                 }
                 &__username {
@@ -189,7 +187,8 @@
                     color: $light-accent-color;
                     span {
                         @include H5-Headers-montserrat;
-                        color: black;
+                        color: $accent-color-75;
+                        font-weight: 700;
                     }
                 }
             }
