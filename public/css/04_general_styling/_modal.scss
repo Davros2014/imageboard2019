@@ -70,6 +70,7 @@
                     @include H3-Headers-montserrat;
                 }
                 &__timestamp {
+                    margin-top: 1rem;
                     font-size: clamp(1.25rem, 1.5vw, 1.4rem);
                     & .userName {
                         font-size: inherit;
@@ -159,7 +160,7 @@
             // view comments
             & .viewComments {
                 @include H4-Headers-montserrat;
-                margin-top: 3rem;
+                margin-top: 1rem;
                 text-align: center;
                 border-top: 1px solid rgba($complimentary-color, 0.8);
                 padding: 2rem;

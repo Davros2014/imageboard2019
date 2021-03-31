@@ -639,6 +639,7 @@ textarea:focus {
   letter-spacing: 0.001rem;
 }
 .modalContainer .wrapperModal .modalContainer__InnerContainer .descContainer__timestamp {
+  margin-top: 1rem;
   font-size: clamp(1.25rem, 1.5vw, 1.4rem);
 }
 .modalContainer .wrapperModal .modalContainer__InnerContainer .descContainer__timestamp .userName {
@@ -730,7 +731,7 @@ textarea:focus {
   font-weight: 100;
   line-height: 1.3;
   letter-spacing: 0.001rem;
-  margin-top: 3rem;
+  margin-top: 1rem;
   text-align: center;
   border-top: 1px solid rgba(76, 76, 76, 0.8);
   padding: 2rem;
