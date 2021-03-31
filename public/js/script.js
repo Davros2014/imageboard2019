@@ -152,6 +152,7 @@
                     .post("/upload", formData)
                     .then(function(response) {
                         // console.log(">>> resp in upload", response.data);
+
                         self.images.unshift({
                             url: response.data.url,
                             title: self.form.title,

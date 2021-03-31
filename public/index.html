@@ -90,22 +90,22 @@
             <div class="modalContainer">
                 <!-- wrapper modal -->
                 <div class="wrapperModal">
-                    <div v-if='imageInfo.length > 0' class="modal-container">
+                    <div v-if='imageInfo.length > 0' class="modalContainer__InnerContainer">
                         <button @click='closingModal' id="close-modal">X</button>
                         <!-- MAIN IMAGE -->
                         <img @click='closingModal' :src=imageInfo[0].url  alt="" >
                         <!-- IMAGE DESCRIPTIONS CONTAINER-->
                         <div class="descContainer">
-                            <h1 class="imageTitle"><span class="imageID">#{{ imageInfo[0].id }} </span>{{ imageInfo[0].title }}</h1>
-                            <p class="userDescription">{{imageInfo[0].description}}</p>
-                            <p class="userNameText">{{ imageInfo[0].username }} @ <span class="timestampText">{{ new Date(imageInfo[0].created_at).toLocaleString() }} </span></p>
+                            <h3 class="descContainer__title"><span class="userId">#{{ imageInfo[0].id }} </span>{{ imageInfo[0].title.slice(0, 1).toUpperCase() + imageInfo[0].title.slice(1, imageInfo[0].title.length) }}</h3>
+                            <p class="descContainer__description">{{imageInfo[0].description.slice(0, 1).toUpperCase() + imageInfo[0].description.slice(1, imageInfo[0].description.length)}}</p>
+                            <p class="descContainer__timestamp">Posted by <span class="userName"> {{ imageInfo[0].username }} </span> @ {{ new Date(imageInfo[0].created_at).toLocaleString() }} </p>
                         </div>
 
                         <!-- use @click='closeModal' on div -->
                         <h1 v-if='comments.length > 0' class="viewComments">View comments</h1>
-                        <div class="comment-container" v-for="comment in comments">
-                            <h1 class="commentsName">{{comment.comment}}</h1>
-                            <h4 class="commentsUsername"><span>{{comment.username}}</span> on {{ new Date(comment.created_at).toLocaleString()}}</h4>
+                        <div class="commentContainer" v-for="comment in comments">
+                            <h1 class="commentContainer__comment">{{comment.comment.slice(0, 1).toUpperCase() + comment.comment.slice(1, comment.comment.length)}}</h1>
+                            <h4 class="commentContainer__username">Made by <span>{{comment.username}}</span> on {{ new Date(comment.created_at).toLocaleString()}}</h4>
                         </div>
 
 
@@ -115,7 +115,7 @@
                             <input class="commentInput" v-model='form.comment' autocomplete="off" autocorrect="off" spellcheck="false" name="description" placeholder="Please post your comment here" type="text">
                             <div class="formUser">
                                 <input v-model='form.username' autocomplete="off" autocorrect="off" spellcheck="false" name='username' placeholder='Enter your username' type='text' required onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your username'" >
-                                <button @click.prevent.default='uploadComment'>Submit comment</button>
+                                <button  @click.prevent.default='uploadComment'>Submit comment</button>
                             </div>
                         </form>
 

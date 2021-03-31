@@ -573,8 +573,7 @@ textarea:focus {
   z-index: 101;
   overflow-y: auto;
 }
-
-.wrapperModal {
+.modalContainer .wrapperModal {
   position: absolute;
   top: 5vh;
   display: flex;
@@ -584,11 +583,18 @@ textarea:focus {
   border-radius: 5px;
   background: #242526;
   padding: calc(2rem + 1vw);
-  width: 50vw;
+  width: 90vw;
   height: auto;
 }
-
-#close-modal {
+@media (min-width: 767px) {
+  .modalContainer .wrapperModal {
+    width: 50vw;
+  }
+}
+.modalContainer .wrapperModal .modalContainer__InnerContainer {
+  padding: 1.25rem;
+}
+.modalContainer .wrapperModal .modalContainer__InnerContainer #close-modal {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -602,148 +608,132 @@ textarea:focus {
   line-height: 1vw;
   font-weight: bold;
   color: #ce3b9d;
+  transition: 0.25s color ease-in-out;
 }
-
-#close-modal:hover {
+.modalContainer .wrapperModal .modalContainer__InnerContainer #close-modal:hover {
   cursor: pointer;
+  transition: 0.25s color ease-in-out;
+  color: white;
 }
-
-.descContainer {
+.modalContainer .wrapperModal .modalContainer__InnerContainer .descContainer {
   position: relative;
   width: 100%;
-}
-
-.imageTitle {
-  font-family: "montserratregular", Helvetica, sans-serif;
-  font-size: clamp(2.4rem, 5vw, 3.6rem);
-  color: #e6e4df;
-  font-weight: 100;
-  line-height: 1.07;
-  letter-spacing: 0.001rem;
-  color: #ce3b9d;
-  margin-bottom: 0;
-}
-
-.userDescription {
-  font-family: "montserratregular", Helvetica, sans-serif;
-  font-size: clamp(2.4rem, 2vw, 2.8rem);
-  color: #e6e4df;
-  font-weight: 700;
-  line-height: 1.25;
-  letter-spacing: 0.001rem;
-}
-
-.userNameText {
-  font-family: "montserratregular", Helvetica, sans-serif;
-  font-size: calc(1.1rem + 0.3vw);
-  color: #4c4c4c;
-  font-weight: 100;
-  line-height: 1.3;
-  letter-spacing: 0.001rem;
-  color: #ce3b9d;
-}
-
-.imageID {
-  font-family: "montserratregular", Helvetica, sans-serif;
-  font-size: clamp(2.4rem, 5vw, 3.6rem);
-  color: #e6e4df;
-  font-weight: 100;
-  line-height: 1.07;
-  letter-spacing: 0.001rem;
-  color: #e6e4df;
-}
-
-.timestampText {
-  font-family: "montserratregular", Helvetica, sans-serif;
-  font-size: calc(1.1rem + 0.3vw);
-  color: #4c4c4c;
-  font-weight: 100;
-  line-height: 1.3;
-  letter-spacing: 0.001rem;
-}
-
-.viewComments {
-  font-family: "montserratregular", Helvetica, sans-serif;
-  font-size: clamp(2.4rem, 2vw, 2.8rem);
-  color: #e6e4df;
-  font-weight: 700;
-  line-height: 1.25;
-  letter-spacing: 0.001rem;
   margin-top: 3rem;
-  text-align: center;
-  font-size: 2.5rem;
-  border-top: 1px solid rgba(76, 76, 76, 0.8);
-  padding-top: 2rem;
+  font-family: "montserratregular", Helvetica, sans-serif;
+  font-size: clamp(1.4rem, 1.5vw, 1.8rem);
+  color: #e6e4df;
+  font-weight: 100;
+  line-height: 1.3;
+  letter-spacing: 0.001rem;
 }
-
-.commentInput {
-  width: 80%;
+.modalContainer .wrapperModal .modalContainer__InnerContainer .descContainer__title {
+  font-size: inherit;
+  color: #ce3b9d;
+  font-weight: 700;
+}
+.modalContainer .wrapperModal .modalContainer__InnerContainer .descContainer__title .userId {
+  font-size: inherit;
+}
+.modalContainer .wrapperModal .modalContainer__InnerContainer .descContainer__description {
+  font-family: "montserratregular", Helvetica, sans-serif;
+  font-size: clamp(2.4rem, 2vw, 2.8rem);
+  color: #e6e4df;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: 0.001rem;
+}
+.modalContainer .wrapperModal .modalContainer__InnerContainer .descContainer__timestamp {
+  font-size: inherit;
+}
+.modalContainer .wrapperModal .modalContainer__InnerContainer .descContainer__timestamp .userName {
+  font-size: inherit;
+  font-weight: 700;
+  color: #ce3b9d;
+}
+.modalContainer .wrapperModal .modalContainer__InnerContainer #commentFormContainer {
+  width: 100%;
+}
+.modalContainer .wrapperModal .modalContainer__InnerContainer #commentFormContainer .commentInput {
+  width: 100%;
   display: block;
-  min-height: 7rem;
-  background: #ce3b9d;
+  min-height: 10rem;
+  background: #333333;
   border-radius: 5px;
   padding: 1rem 2rem;
   color: #e6e4df;
   margin-bottom: 1rem;
   outline: 0;
   border: none;
-  text-align: center;
+  text-align: left;
   margin: 0 auto;
   margin-bottom: 2rem;
+  transition: 0.15s background ease-in-out;
 }
-
-input::placeholder {
+.modalContainer .wrapperModal .modalContainer__InnerContainer #commentFormContainer .commentInput::placeholder {
   font-size: calc(0.75rem + 0.5vw);
   color: #e6e4df;
 }
-
-input::placeholder:hover {
+.modalContainer .wrapperModal .modalContainer__InnerContainer #commentFormContainer .commentInput:focus {
+  transition: 0.25s background ease-in-out;
+  background: #ce3b9d;
+}
+.modalContainer .wrapperModal .modalContainer__InnerContainer #commentFormContainer:hover::placeholder {
   color: red;
 }
-
-.formUser input {
-  width: 60%;
-  text-align: center;
+.modalContainer .wrapperModal .modalContainer__InnerContainer #commentFormContainer .formUser input {
+  width: 50%;
+  text-align: left;
   margin: 0 auto;
   background: #333333;
-  color: #e6e4df;
   border: none;
   outline: none;
   display: block;
   padding: 1.25rem;
   border-radius: 5px;
-  transition: 0.25s all ease-in-out;
+  transition: 0.25s color ease-in-out;
+  color: #e6e4df;
 }
-
-.formUser input:hover {
+.modalContainer .wrapperModal .modalContainer__InnerContainer #commentFormContainer .formUser input::placeholder {
+  color: #e6e4df;
+}
+.modalContainer .wrapperModal .modalContainer__InnerContainer #commentFormContainer .formUser input:focus {
+  transition: 0.25s background ease-in-out;
   background: #ce3b9d;
   cursor: pointer;
-  color: black;
 }
-
-.formUser button {
-  width: 30%;
+.modalContainer .wrapperModal .modalContainer__InnerContainer #commentFormContainer .formUser button {
   padding-left: 1rem;
   background: #333333;
   color: #e6e4df;
   border: none;
   outline: none;
   margin: 0 auto;
-  margin-top: 2rem;
+  margin-top: 4rem;
   text-align: center;
-  font-size: 1.6rem;
+  font-size: 1.2rem;
+  text-transform: uppercase;
   display: block;
-  padding: 1.25rem;
+  padding: 1.25rem 2rem;
+  margin-bottom: 0;
   transition: 0.25s all ease-in-out;
 }
-
-.formUser button:hover,
-.formUser button:focus {
+.modalContainer .wrapperModal .modalContainer__InnerContainer #commentFormContainer .formUser button:hover {
   background: #ce3b9d;
   cursor: pointer;
 }
-
-.comment-container {
+.modalContainer .wrapperModal .modalContainer__InnerContainer .viewComments {
+  font-family: "montserratregular", Helvetica, sans-serif;
+  font-size: clamp(1.4rem, 1.5vw, 1.8rem);
+  color: #e6e4df;
+  font-weight: 100;
+  line-height: 1.3;
+  letter-spacing: 0.001rem;
+  margin-top: 3rem;
+  text-align: center;
+  border-top: 1px solid rgba(76, 76, 76, 0.8);
+  padding: 2rem;
+}
+.modalContainer .wrapperModal .modalContainer__InnerContainer .commentContainer {
   width: 100%;
   height: auto;
   display: inline-block;
@@ -756,13 +746,12 @@ input::placeholder:hover {
   flex-direction: column;
   margin-right: 10%;
 }
-
-.comment-container:nth-child(odd) {
+.modalContainer .wrapperModal .modalContainer__InnerContainer .commentContainer:nth-child(odd) {
   background: rgba(22, 175, 203, 0.35);
   margin-left: 10%;
+  text-align: right;
 }
-
-.commentsName {
+.modalContainer .wrapperModal .modalContainer__InnerContainer .commentContainer__comment {
   font-family: "montserratlight", Helvetica, sans-serif;
   font-size: calc(1.1rem + 0.25vw);
   color: #4c4c4c;
@@ -771,8 +760,7 @@ input::placeholder:hover {
   letter-spacing: 0.0025rem;
   color: #e6e4df;
 }
-
-.commentsUsername {
+.modalContainer .wrapperModal .modalContainer__InnerContainer .commentContainer__username {
   font-family: "montserratregular", Helvetica, sans-serif;
   font-size: clamp(1.4rem, 2vw, 1.6rem);
   color: #4c4c4c;
@@ -781,8 +769,7 @@ input::placeholder:hover {
   letter-spacing: 0.001rem;
   color: #e6e4df;
 }
-
-.commentsUsername span {
+.modalContainer .wrapperModal .modalContainer__InnerContainer .commentContainer__username span {
   font-family: "montserratregular", Helvetica, sans-serif;
   font-size: clamp(1.4rem, 2vw, 1.6rem);
   color: #4c4c4c;
@@ -790,20 +777,6 @@ input::placeholder:hover {
   line-height: 1.3;
   letter-spacing: 0.001rem;
   color: black;
-}
-
-.comment-container:nth-child(odd) .commentsUsername {
-  text-align: right;
-}
-
-.comment-container:nth-child(odd) .commentsName {
-  text-align: right;
-}
-
-@media all and (max-width: 908px) {
-  .wrapperModal {
-    width: 90vw;
-  }
 }
 
 /*# sourceMappingURL=style.css.map */

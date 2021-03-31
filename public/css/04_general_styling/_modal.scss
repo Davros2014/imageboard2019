@@ -1,8 +1,7 @@
-/////////////////////////////////////////////////////////////////////
-// MODAL FIELD ///////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////
+////////////////////////////////////
+// MODAL FIELD /////////////////////
+////////////////////////////////////
 
-// outer container > overlay on background
 .modalContainer {
     position: fixed;
     top: 0;
@@ -16,196 +15,184 @@
     background: $bodyTextColor;
     z-index: 101;
     overflow-y: auto;
-    // animation-name: delayFadein;
-    // animation-delay: 2s;
-    // animation-fill-mode: forwards;
-    // animation-duration: 0.25s;
-}
-// @keyframes delayFadein {
-//     0% {
-//         opacity: 0;
-//     }
-//     100% {
-//         opacity: 1;
-//     }
-// }
-// outer container > contains all images/text/comments
-.wrapperModal {
-    position: absolute;
-    top: 5vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-    border-radius: 5px;
-    background: $header-color;
-    padding: calc(2rem + 1vw);
-    width: 50vw;
-    height: auto;
-}
-// modal button
-#close-modal {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    background: $header-color;
-    border: none;
-    border-radius: 100%;
-    width: calc(2rem + 1vw);
-    height: calc(2rem + 1vw);
-    margin-top: calc(-1rem - 0.5vw);
-    font-size: calc(1rem + 0.5vw);
-    line-height: 1vw;
-    font-weight: bold;
-    color: $secondary-color;
-}
-#close-modal:hover {
-    cursor: pointer;
-}
-// CONTAINER FOR IMAGE DATA
-.descContainer {
-    position: relative;
-    width: 100%;
-}
-// IMAGE TITLE
-.imageTitle {
-    @include H1-Headers-montserrat;
-    color: $secondary-color;
-    margin-bottom: 0;
-}
-// USERDESC TITLE
-.userDescription {
-    @include H3-Headers-montserrat;
-}
-// USERNAME TITLE
-.userNameText {
-    @include H4-Headers-montserrat;
-    color: $secondary-color;
-}
-// IMAGE TITLE
-.imageID {
-    @include H1-Headers-montserrat;
-    color: $light-accent-color;
-}
-// ITIMESTAMP
-.timestampText {
-    @include H4-Headers-montserrat;
-}
-.viewComments {
-    @include H3-Headers-montserrat;
-    margin-top: 3rem;
-    text-align: center;
-    font-size: 2.5rem;
-    border-top: 1px solid rgba($complimentary-color, 0.8);
-    padding-top: 2rem;
-}
-
-// post comment field
-.commentInput {
-    width: 80%;
-    display: block;
-    min-height: 7rem;
-    background: $secondary-color;
-    border-radius: 5px;
-    padding: 1rem 2rem;
-    color: $light-accent-color;
-    margin-bottom: 1rem;
-    outline: 0;
-    border: none;
-    text-align: center;
-    margin: 0 auto;
-    margin-bottom: 2rem;
-}
-input::placeholder {
-    font-size: calc(0.75rem + 0.5vw);
-    color: $light-accent-color;
-}
-input::placeholder:hover {
-    color: red;
-}
-// enter your username field - modal
-.formUser input {
-    width: 60%;
-    text-align: center;
-    margin: 0 auto;
-    background: $accent-color;
-    color: $light-accent-color;
-    border: none;
-    outline: none;
-    display: block;
-    padding: 1.25rem;
-    border-radius: 5px;
-    transition: 0.25s all ease-in-out;
-}
-.formUser input:hover {
-    background: $secondary-color;
-    cursor: pointer;
-    color: black;
-}
-
-// submit button - modal
-.formUser button {
-    width: 30%;
-    padding-left: 1rem;
-    background: $accent-color;
-    color: $light-accent-color;
-    border: none;
-    outline: none;
-    margin: 0 auto;
-    margin-top: 2rem;
-    text-align: center;
-    font-size: 1.6rem;
-    display: block;
-    padding: 1.25rem;
-    transition: 0.25s all ease-in-out;
-}
-.formUser button:hover,
-.formUser button:focus {
-    background: $secondary-color;
-    cursor: pointer;
-}
-
-// view comment and below
-.comment-container {
-    width: 100%;
-    height: auto;
-    display: inline-block;
-    background: $secondary-color;
-    border-radius: 5px;
-    padding: 1rem 2rem;
-    color: $header-color;
-    margin-bottom: 1rem;
-    width: 90%;
-    flex-direction: column;
-    margin-right: 10%;
-}
-.comment-container:nth-child(odd) {
-    background: $fourth-color;
-    margin-left: 10%;
-}
-
-.commentsName {
-    @include LightText-montserrat;
-    color: $light-accent-color;
-}
-.commentsUsername {
-    @include H5-Headers-montserrat;
-    color: $light-accent-color;
-}
-
-.commentsUsername span {
-    @include H5-Headers-montserrat;
-    color: black;
-}
-
-.comment-container:nth-child(odd) .commentsUsername {
-    text-align: right;
-}
-.comment-container:nth-child(odd) .commentsName {
-    text-align: right;
-}
-@media all and (max-width: 908px) {
-    .wrapperModal {
+    & .wrapperModal {
+        position: absolute;
+        top: 5vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        border-radius: 5px;
+        background: $header-color;
+        padding: calc(2rem + 1vw);
         width: 90vw;
+        height: auto;
+        @include minWidthQuery("767px") {
+            width: 50vw;
+        }
+        & .modalContainer__InnerContainer {
+            padding: 1.25rem;
+            & #close-modal {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                background: $header-color;
+                border: none;
+                border-radius: 100%;
+                width: calc(2rem + 1vw);
+                height: calc(2rem + 1vw);
+                margin-top: calc(-1rem - 0.5vw);
+                font-size: calc(1rem + 0.5vw);
+                line-height: 1vw;
+                font-weight: bold;
+                color: $secondary-color;
+                transition: 0.25s color ease-in-out;
+                &:hover {
+                    cursor: pointer;
+                    transition: 0.25s color ease-in-out;
+                    color: white;
+                }
+            }
+            & .descContainer {
+                position: relative;
+                width: 100%;
+                margin-top: 3rem;
+                @include H4-Headers-montserrat;
+                &__title {
+                    font-size: inherit;
+                    color: $secondary-color;
+                    font-weight: 700;
+                    & .userId {
+                        font-size: inherit;
+                    }
+                }
+                &__description {
+                    @include H3-Headers-montserrat;
+                }
+                &__timestamp {
+                    font-size: inherit;
+                    & .userName {
+                        font-size: inherit;
+                        font-weight: 700;
+                        color: $secondary-color;
+                    }
+                }
+            }
+            // post comments
+            & #commentFormContainer {
+                width: 100%;
+                & .commentInput {
+                    width: 100%;
+                    display: block;
+                    min-height: 10rem;
+                    background: $accent-color;
+                    border-radius: 5px;
+                    padding: 1rem 2rem;
+                    color: $light-accent-color;
+                    margin-bottom: 1rem;
+                    outline: 0;
+                    border: none;
+                    text-align: left;
+                    margin: 0 auto;
+                    margin-bottom: 2rem;
+                    transition: 0.15s background ease-in-out;
+
+                    &::placeholder {
+                        font-size: calc(0.75rem + 0.5vw);
+                        color: $light-accent-color;
+                    }
+                    &:focus {
+                        transition: 0.25s background ease-in-out;
+                        background: $secondary-color;
+                    }
+                }
+                &:hover::placeholder {
+                    color: red;
+                }
+                & .formUser {
+                    input {
+                        width: 50%;
+                        text-align: left;
+                        margin: 0 auto;
+                        background: $accent-color;
+                        border: none;
+                        outline: none;
+                        display: block;
+                        padding: 1.25rem;
+                        border-radius: 5px;
+                        transition: 0.25s color ease-in-out;
+                        color: $light-accent-color;
+
+                        &::placeholder {
+                            color: $light-accent-color;
+                        }
+                        &:focus {
+                            transition: 0.25s background ease-in-out;
+                            background: $secondary-color;
+                            cursor: pointer;
+                        }
+                    }
+                    & button {
+                        padding-left: 1rem;
+                        background: $accent-color;
+                        color: $light-accent-color;
+                        border: none;
+                        outline: none;
+                        margin: 0 auto;
+                        margin-top: 4rem;
+                        text-align: center;
+                        font-size: 1.2rem;
+                        text-transform: uppercase;
+                        display: block;
+                        padding: 1.25rem 2rem;
+                        margin-bottom: 0;
+                        transition: 0.25s all ease-in-out;
+                        &:hover {
+                            background: $secondary-color;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+            // view comments
+            & .viewComments {
+                @include H4-Headers-montserrat;
+                margin-top: 3rem;
+                text-align: center;
+                // font-size: 2.5rem;
+                border-top: 1px solid rgba($complimentary-color, 0.8);
+                padding: 2rem;
+            }
+            & .commentContainer {
+                width: 100%;
+                height: auto;
+                display: inline-block;
+                background: $secondary-color;
+                border-radius: 5px;
+                padding: 1rem 2rem;
+                color: $header-color;
+                margin-bottom: 1rem;
+                width: 90%;
+                flex-direction: column;
+                margin-right: 10%;
+                &:nth-child(odd) {
+                    background: $fourth-color;
+                    margin-left: 10%;
+                    text-align: right;
+                }
+                &__comment {
+                    @include LightText-montserrat;
+                    color: $light-accent-color;
+                }
+                &__username {
+                    @include H5-Headers-montserrat;
+                    color: $light-accent-color;
+                    span {
+                        @include H5-Headers-montserrat;
+                        color: black;
+                    }
+                }
+            }
+        }
     }
 }
