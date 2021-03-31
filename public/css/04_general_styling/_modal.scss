@@ -70,7 +70,7 @@
                     @include H3-Headers-montserrat;
                 }
                 &__timestamp {
-                    font-size: inherit;
+                    font-size: clamp(1.25rem, 1.5vw, 1.4rem);
                     & .userName {
                         font-size: inherit;
                         font-weight: 700;
@@ -84,7 +84,7 @@
                 & .commentInput {
                     width: 100%;
                     display: block;
-                    min-height: 10rem;
+                    min-height: 3rem;
                     background: $accent-color;
                     border-radius: 5px;
                     padding: 1rem 2rem;
@@ -96,7 +96,9 @@
                     margin: 0 auto;
                     margin-bottom: 2rem;
                     transition: 0.15s background ease-in-out;
-
+                    @include minWidthQuery("767px") {
+                        min-height: 10rem;
+                    }
                     &::placeholder {
                         font-size: calc(0.75rem + 0.5vw);
                         color: $light-accent-color;
@@ -123,11 +125,13 @@
                         &::placeholder {
                             color: $light-accent-color;
                         }
+                        &::placeholder:focus {
+                            color: rgba(270, 270, 270, 0.25);
+                        }
                         &:focus {
                             transition: 0.25s background ease-in-out;
                             background: $secondary-color;
                             cursor: pointer;
-                            color: rgba(270, 270, 270, 0.25);
                         }
                     }
                     & button {
@@ -172,7 +176,7 @@
                 width: 90%;
                 flex-direction: column;
                 margin-right: 10%;
-                &:nth-child(odd) {
+                &:nth-child(even) {
                     background: $fourth-color;
                     margin-left: 10%;
                     text-align: right;

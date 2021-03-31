@@ -639,7 +639,7 @@ textarea:focus {
   letter-spacing: 0.001rem;
 }
 .modalContainer .wrapperModal .modalContainer__InnerContainer .descContainer__timestamp {
-  font-size: inherit;
+  font-size: clamp(1.25rem, 1.5vw, 1.4rem);
 }
 .modalContainer .wrapperModal .modalContainer__InnerContainer .descContainer__timestamp .userName {
   font-size: inherit;
@@ -652,7 +652,7 @@ textarea:focus {
 .modalContainer .wrapperModal .modalContainer__InnerContainer #commentFormContainer .commentInput {
   width: 100%;
   display: block;
-  min-height: 10rem;
+  min-height: 3rem;
   background: #333333;
   border-radius: 5px;
   padding: 1rem 2rem;
@@ -664,6 +664,11 @@ textarea:focus {
   margin: 0 auto;
   margin-bottom: 2rem;
   transition: 0.15s background ease-in-out;
+}
+@media (min-width: 767px) {
+  .modalContainer .wrapperModal .modalContainer__InnerContainer #commentFormContainer .commentInput {
+    min-height: 10rem;
+  }
 }
 .modalContainer .wrapperModal .modalContainer__InnerContainer #commentFormContainer .commentInput::placeholder {
   font-size: calc(0.75rem + 0.5vw);
@@ -690,11 +695,13 @@ textarea:focus {
 .modalContainer .wrapperModal .modalContainer__InnerContainer #commentFormContainer .formUser input::placeholder {
   color: #e6e4df;
 }
+.modalContainer .wrapperModal .modalContainer__InnerContainer #commentFormContainer .formUser input::placeholder:focus {
+  color: rgba(255, 255, 255, 0.25);
+}
 .modalContainer .wrapperModal .modalContainer__InnerContainer #commentFormContainer .formUser input:focus {
   transition: 0.25s background ease-in-out;
   background: #ce3b9d;
   cursor: pointer;
-  color: rgba(255, 255, 255, 0.25);
 }
 .modalContainer .wrapperModal .modalContainer__InnerContainer #commentFormContainer .formUser button {
   padding-left: 1rem;
@@ -741,7 +748,7 @@ textarea:focus {
   flex-direction: column;
   margin-right: 10%;
 }
-.modalContainer .wrapperModal .modalContainer__InnerContainer .commentContainer:nth-child(odd) {
+.modalContainer .wrapperModal .modalContainer__InnerContainer .commentContainer:nth-child(even) {
   background: rgba(22, 175, 203, 0.63);
   margin-left: 10%;
   text-align: right;

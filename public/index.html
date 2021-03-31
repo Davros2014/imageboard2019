@@ -101,15 +101,7 @@
                             <p class="descContainer__timestamp">Posted by <span class="userName"> {{ imageInfo[0].username }} </span> @ {{ new Date(imageInfo[0].created_at).toLocaleString() }} </p>
                         </div>
 
-                        <!-- use @click='closeModal' on div -->
-                        <h1 v-if='comments.length > 0' class="viewComments">View comments</h1>
-                        <div class="commentContainer" v-for="comment in comments">
-                            <h1 class="commentContainer__comment">{{comment.comment.slice(0, 1).toUpperCase() + comment.comment.slice(1, comment.comment.length)}}</h1>
-                            <h4 class="commentContainer__username">Made by <span>{{comment.username}}</span> on {{ new Date(comment.created_at).toLocaleString()}}</h4>
-                        </div>
-
-
-                        <!--"form" refers to "form"- property in script.js-->
+						<!--"form" refers to "form"- property in script.js-->
                         <h1 class="viewComments">Post comment</h1>
                         <form id="commentFormContainer" action="">
                             <input class="commentInput" v-model='form.comment' autocomplete="off" autocorrect="off" spellcheck="false" name="description" placeholder="Please post your comment here" type="text">
@@ -119,6 +111,12 @@
                             </div>
                         </form>
 
+                        <!-- use @click='closeModal' on div -->
+                        <h1 v-if='comments.length > 0' class="viewComments">View comments</h1>
+                        <div class="commentContainer" v-for="comment in comments">
+                            <h1 class="commentContainer__comment">{{comment.comment.slice(0, 1).toUpperCase() + comment.comment.slice(1, comment.comment.length)}}</h1>
+                            <h4 class="commentContainer__username">Made by <span>{{comment.username}}</span> on {{ new Date(comment.created_at).toLocaleString()}}</h4>
+                        </div>
                     </div>
                 </div>
             </div>
