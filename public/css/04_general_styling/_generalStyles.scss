@@ -239,11 +239,14 @@ p {
     background: $header-color;
     color: $secondary-color;
     margin: 0 auto;
-    margin-bottom: 2rem;
     transition: all 0.25s ease-in-out;
+    font-size: clamp(1rem, 2vw, 1rem);
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 6px;
 }
 #getMore:hover {
-    padding: 1rem 3rem;
+    padding: 1rem 2.5rem;
     color: $light-accent-color;
     cursor: pointer;
 }
