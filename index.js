@@ -59,7 +59,7 @@ app.post("/upload", uploader.single("file"), s3.upload, function(req, res) {
                 });
             })
             .catch(err => {
-                console.log("ERROR: ", err);
+                console.log(err);
             });
     } else {
         res.json({
@@ -104,7 +104,6 @@ app.post("/uploadComment", (req, res) => {
 
 // GET IMAGES
 app.get("/images", (req, res) => {
-    // console.log(">>> GET > IMAGES");
     db.getImagesData()
         .then(results => {
             res.json(results.rows);

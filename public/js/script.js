@@ -22,7 +22,7 @@
                     self.comments = resp.data[1];
                 })
                 .catch(function(err) {
-                    console.log("error", err);
+                    console.log(err.message);
                 });
         },
         watch: {
@@ -50,7 +50,7 @@
                         self.form.username = "";
                     })
                     .catch(function(err) {
-                        console.log("error", err);
+                        console.log(err.message);
                     });
             },
             closingModal: function() {
@@ -93,7 +93,8 @@
                     }
                 })
                 .catch(function(err) {
-                    console.log("error (upload): ", err.message);
+                    // error (upload)
+                    console.log(err.message);
                 });
 
             addEventListener("hashchange", function() {
@@ -115,7 +116,6 @@
             },
             handleFileChange: function(e) {
                 this.form.file = e.target.files[0];
-                console.log("Info of image to upload", this.form.file);
             },
             loading: function() {
                 var self = this;
@@ -132,11 +132,12 @@
                         }
                     })
                     .catch(function(err) {
-                        console.log("Error uploading image", err.message);
+                        // Error uploading image
+                        console.log(err.message);
                     });
             },
             uploadFile: function() {
-                console.log("// UploadFile");
+                // UploadFile
                 var formData = new FormData();
                 // NO ES6
                 // const { file, title, username, description } = this.form;
@@ -146,13 +147,10 @@
                     formData.append("username", this.form.username);
                     formData.append("description", this.form.description);
                 }
-                // console.log("formData: ", formData); formData will return an empty object {} >> this is ok
                 var self = this; // to distinguish from the global "this"
                 axios
                     .post("/upload", formData)
                     .then(function(response) {
-                        // console.log(">>> resp in upload", response.data);
-
                         self.images.unshift({
                             url: response.data.url,
                             title: self.form.title,
@@ -165,10 +163,11 @@
                         self.form.description = "";
                         self.form.username = "";
                         self.form.file = "";
-                        // console.log("Successful image upload!!");
+                        // image upload
                     })
                     .catch(function(err) {
-                        console.log("Error uploading image", err.message);
+                        // Error uploading image
+                        console.log(err.message);
                     });
                 // end axios
             }
